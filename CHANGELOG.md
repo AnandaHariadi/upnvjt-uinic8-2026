@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-04] docs: document backend architecture roadmap and REST contracts
+- [2026-08-04] chore: add Plus Jakarta Sans typography font configurations
