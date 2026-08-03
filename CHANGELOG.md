@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-03] docs: add frontend flow contract and navigation schema
+- [2026-08-04] chore: setup ESLint configuration and strict TypeScript compiler flags
