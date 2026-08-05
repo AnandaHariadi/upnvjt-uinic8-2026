@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-05] docs: define AGENTS.md AI engineering standard operating procedures
+- [2026-08-05] docs: add frontend flow contract and navigation schema
