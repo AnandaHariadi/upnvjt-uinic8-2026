@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-06] chore: add Plus Jakarta Sans typography font configurations
+- [2026-08-06] docs: finalize technical system architecture overview in system.md
