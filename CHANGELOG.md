@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-07] chore: add environment variable schema and template (.env.example)
+- [2026-08-07] docs: document backend architecture roadmap and REST contracts
