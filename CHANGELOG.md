@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-09] feat(types): define green action domain interfaces and verification states
+- [2026-08-09] feat(types): add carbon footprint and emission calculation interfaces
