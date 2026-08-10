@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-10] feat(data): populate initial Surabaya MSME merchant partner rewards
+- [2026-08-10] feat(config): add 31 Surabaya districts dataset with latitude and longitude centroids
