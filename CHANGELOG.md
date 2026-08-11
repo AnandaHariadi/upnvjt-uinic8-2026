@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-07] docs: document backend architecture roadmap and REST contracts
+- [2026-08-12] feat(data): add baseline pilot statistics for Surabaya districts
