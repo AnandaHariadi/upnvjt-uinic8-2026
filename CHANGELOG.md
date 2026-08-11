@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-11] feat(utils): add Surabaya regional color palettes and map marker definitions
+- [2026-08-11] feat(data): add baseline pilot statistics for Surabaya districts
