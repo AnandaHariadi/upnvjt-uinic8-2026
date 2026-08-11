@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-11] feat(config): establish Green Action categories and point allocation matrix
+- [2026-08-11] feat(config): define EcoPoints tokenomics rules and exchange rate metrics
