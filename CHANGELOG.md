@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-18] feat(store): implement stepTracker store with pedometer step accumulation
+- [2026-08-18] feat(store): implement govAuth store for government officer credentials
