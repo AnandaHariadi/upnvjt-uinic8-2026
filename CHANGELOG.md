@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-19] feat(pwa): register service worker for offline asset caching and push notifications
+- [2026-08-19] feat(vision): integrate Google Cloud Vision REST client for semantic label detection
