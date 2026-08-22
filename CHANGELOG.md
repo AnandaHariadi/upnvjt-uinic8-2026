@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-22] feat(vision): implement fallback simulation for offline and test environments
+- [2026-08-22] feat(api): create POST /api/eco-action/verify endpoint with multi-step validation
