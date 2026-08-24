@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-25] feat(middleware): implement dual-session route guard for citizen and gov portals
+- [2026-08-25] feat(pedometer): implement DeviceMotion sensor hook for step counting
