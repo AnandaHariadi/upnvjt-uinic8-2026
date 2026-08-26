@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-26] feat(ui): create DataBadge component with demo and verified indicators
+- [2026-08-26] feat(layout): build responsive citizen Navbar with EcoPoints balance pill
