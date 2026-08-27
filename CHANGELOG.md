@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-27] feat(layout): implement citizen Sidebar with active route highlighting
+- [2026-08-27] feat(layout): build footer with Surabaya environmental links and attribution
