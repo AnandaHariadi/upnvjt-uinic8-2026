@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-28] feat(pedometer): implement desktop simulation mode for devices without accelerometer
+- [2026-08-29] feat(ui): add common LoadingSpinner and ErrorBoundary components
