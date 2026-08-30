@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-08-31] feat(ocr): create /api/ocr/scan-bill route using vision text annotations
+- [2026-08-31] feat(ocr): implement regex extractor for customer ID, kWh usage, and billing amount
