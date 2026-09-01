@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-02] feat(carbon): add BenchmarkEmisiSurabaya comparing household consumption with city average
+- [2026-09-02] feat(carbon): build BreakdownKategori for household carbon footprint categories
