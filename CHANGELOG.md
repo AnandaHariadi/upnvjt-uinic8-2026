@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-02] feat(ocr): implement regex extractor for customer ID, kWh usage, and billing amount
+- [2026-09-02] feat(ocr): add electricity emission factor calculation for Jawa-Madura-Bali grid
