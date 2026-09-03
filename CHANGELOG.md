@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-03] feat(carbon): add CatatAktivitasBaru modal for manual carbon emission logs
+- [2026-09-03] feat(ocr): create /api/ocr/scan-bill route using vision text annotations
