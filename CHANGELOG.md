@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-09] feat(green-action): add GreenActionHistory listing verified submissions
+- [2026-09-09] feat(map): dynamic import Leaflet map components to ensure SSR safety
