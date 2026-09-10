@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-11] feat(market): generate dynamic QR code modal for in-store voucher verification
+- [2026-09-11] feat(market): add merchant categorization (Kuliner Lokal, Sembako, Daur Ulang)
