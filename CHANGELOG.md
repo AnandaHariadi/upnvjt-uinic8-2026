@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-11] feat(map): dynamic import Leaflet map components to ensure SSR safety
+- [2026-09-11] feat(market): display Surabaya partner MSME merchant reward vouchers
