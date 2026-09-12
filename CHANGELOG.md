@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-11] feat(market): add merchant categorization (Kuliner Lokal, Sembako, Daur Ulang)
+- [2026-09-12] feat(dashboard): build KpiCards displaying EcoPoints, verified actions, and CO2 saved
