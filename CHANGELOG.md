@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-11] feat(map): dynamic import Leaflet map components to ensure SSR safety
+- [2026-09-17] feat(market): generate dynamic QR code modal for in-store voucher verification
