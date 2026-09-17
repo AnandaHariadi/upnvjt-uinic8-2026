@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-17] feat(profile): build ProfileHeader displaying user level, tier, and EcoPoints
+- [2026-09-17] feat(eco-action): implement Achievements panel with unlocked environmental badges
