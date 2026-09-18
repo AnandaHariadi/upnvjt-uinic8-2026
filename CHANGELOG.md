@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-18] feat(eco-action): add Leaderboard ranking top green contributors in Surabaya
+- [2026-09-18] feat(community): implement CollaborationPageClient with community action feed
