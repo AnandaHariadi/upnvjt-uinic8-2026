@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-20] feat(eco-action): implement Achievements panel with unlocked environmental badges
+- [2026-09-20] feat(eco-action): add Leaderboard ranking top green contributors in Surabaya
