@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-22] feat(community): implement peer upvoting and likes with bounded count state
+- [2026-09-22] feat(profile): build ProfileHeader displaying user level, tier, and EcoPoints
