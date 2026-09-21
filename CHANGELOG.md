@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-22] feat(eco-action): add Leaderboard ranking top green contributors in Surabaya
+- [2026-09-22] feat(gov): implement dedicated GovDashboardClient for DLH Surabaya command center
