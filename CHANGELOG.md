@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-17] feat(market): generate dynamic QR code modal for in-store voucher verification
+- [2026-09-22] feat(eco-action): add Leaderboard ranking top green contributors in Surabaya
