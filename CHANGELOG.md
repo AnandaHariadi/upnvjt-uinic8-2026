@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-24] feat(gov): implement priority district filter across 31 Surabaya sub-districts
+- [2026-09-24] feat(gov): add EcoPoints circulation analysis comparing issued vs redeemed points
