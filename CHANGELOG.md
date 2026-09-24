@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-25] feat(gov): add EcoPoints circulation analysis comparing issued vs redeemed points
+- [2026-09-25] feat(gov): implement CSV export functionality for municipal environmental reports
