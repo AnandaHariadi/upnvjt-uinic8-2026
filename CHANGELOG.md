@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-25] feat(gov): implement dedicated GovDashboardClient for DLH Surabaya command center
+- [2026-09-25] feat(gov): add GovSidebar with DLH Surabaya identity and quick section navigation
