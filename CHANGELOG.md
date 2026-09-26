@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-26] feat(gov): implement operational KPI strip (Critical reports, verified actions, response time)
+- [2026-09-26] feat(gov): add interactive Waste Incident Manager modal for dispatching cleanup crews
