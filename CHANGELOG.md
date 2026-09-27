@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-27] feat(gov): implement CSV export functionality for municipal environmental reports
+- [2026-09-27] feat(gov): add formal Indonesian localized date and officer identity banner
