@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-29] feat(gov): implement operational KPI strip (Critical reports, verified actions, response time)
+- [2026-09-29] feat(badges): build Badge3DIcon with claymorphic 3D aesthetic and specular lighting
