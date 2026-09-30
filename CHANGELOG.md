@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-01] feat(badges): integrate tooltips displaying remaining points needed to unlock next tier
+- [2026-10-01] feat(badges): build Badge3DIcon with claymorphic 3D aesthetic and specular lighting
