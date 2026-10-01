@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-30] feat(badges): implement gold, emerald, and ruby radial gradients for medal tiers
+- [2026-10-01] feat(badges): design locked medal state with proportional 3D padlock vector
