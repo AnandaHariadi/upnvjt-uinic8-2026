@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-04] feat(badges): configure point thresholds: 70, 300, 500, 750, 1000, 1250, 1500, 2000 pts
+- [2026-10-04] feat(landing): build LandingSections with modern radial ambient glow background
