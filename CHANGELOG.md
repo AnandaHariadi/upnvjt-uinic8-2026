@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-29] feat(gov): implement operational KPI strip (Critical reports, verified actions, response time)
+- [2026-10-04] feat(badges): configure point thresholds: 70, 300, 500, 750, 1000, 1250, 1500, 2000 pts
