@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-05] feat(landing): implement hero headline emphasizing Surabaya 31 districts pilot
+- [2026-10-05] feat(landing): add 4-column live statistics strip (31 Kecamatan, 5 Aksi, 100% Komunitas)
