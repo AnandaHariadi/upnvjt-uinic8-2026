@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-07] feat(landing): add demo portal links and citizen onboarding call-to-action
+- [2026-10-07] feat(landing): build LandingSections with modern radial ambient glow background
