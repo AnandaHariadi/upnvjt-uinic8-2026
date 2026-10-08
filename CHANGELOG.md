@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-09-17] feat(market): generate dynamic QR code modal for in-store voucher verification
+- [2026-10-09] feat(landing): integrate Surabaya local wisdom pillar (Gotong Royong & Kampung Bersih)
