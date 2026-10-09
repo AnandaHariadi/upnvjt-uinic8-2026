@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-09] feat(landing): integrate Surabaya local wisdom pillar (Gotong Royong & Kampung Bersih)
+- [2026-10-09] fix(ocr): prevent global punctuation stripping from removing decimal commas in kWh values
