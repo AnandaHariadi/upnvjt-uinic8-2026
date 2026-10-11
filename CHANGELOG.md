@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-11] fix(ocr): calibrate carbon emission formula based on accurate decimal kWh readings
+- [2026-10-11] refactor(ocr): improve OCR pattern matching confidence calculation
