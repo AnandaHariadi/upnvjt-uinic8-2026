@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-09] feat(landing): integrate Surabaya local wisdom pillar (Gotong Royong & Kampung Bersih)
+- [2026-10-13] fix(ocr): distinguish between thousands separator (Rp 412.350) and decimal readings (248,5 kWh)
