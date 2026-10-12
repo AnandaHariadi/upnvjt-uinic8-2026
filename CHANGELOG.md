@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-13] test(ocr): add regression test cases for both prabayar and pascabayar bill formats
+- [2026-10-13] fix(ocr): calibrate carbon emission formula based on accurate decimal kWh readings
