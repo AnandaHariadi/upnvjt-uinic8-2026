@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-13] fix(ocr): distinguish between thousands separator (Rp 412.350) and decimal readings (248,5 kWh)
+- [2026-10-14] fix(auth): strictly isolate pacul_token (citizen) from pacul_gov_token (government)
