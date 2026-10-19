@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-19] fix(gov): replace plain horizontal bar chart with interactive Donut Gauge and Bento grid
+- [2026-10-20] fix(gov): restrict operational banner and KPIs exclusively to overview section
