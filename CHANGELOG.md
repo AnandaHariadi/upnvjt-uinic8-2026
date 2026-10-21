@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-21] style(gov): restructure MSME partners into compact 2-column bento card layout
+- [2026-10-21] feat(gov): add 3-column circulation metric cards below EcoPoints bar chart
