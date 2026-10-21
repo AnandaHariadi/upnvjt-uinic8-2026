@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-22] style(gov): expand officer unit text DLH Kota Surabaya without ellipsis truncation
+- [2026-10-22] docs: update Project_Update.md documenting Section 7 UI refinements
