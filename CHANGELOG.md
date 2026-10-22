@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-23] style(gov): refine sidebar agency badge to single-word non-wrapping Pemkot badge
+- [2026-10-23] style(gov): expand officer unit text DLH Kota Surabaya without ellipsis truncation
