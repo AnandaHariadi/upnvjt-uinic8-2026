@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-24] perf(bundle): code split heavy Leaflet and Recharts packages using next/dynamic
+- [2026-10-24] style(gov): refine sidebar agency badge to single-word non-wrapping Pemkot badge
