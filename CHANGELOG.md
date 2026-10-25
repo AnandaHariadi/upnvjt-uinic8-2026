@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-25] feat(final): freeze PACUL pilot platform for Surabaya environmental deployment
+- [2026-10-25] chore(release): bump platform version to v1.0.0-pilot
