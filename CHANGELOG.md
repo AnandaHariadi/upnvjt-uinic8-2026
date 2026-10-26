@@ -1,3 +1,3 @@
 # PACUL Development Changelog
 
-- [2026-10-09] feat(landing): integrate Surabaya local wisdom pillar (Gotong Royong & Kampung Bersih)
+- [2026-10-27] docs: finalize comprehensive evaluation guidelines for hackathon judges
