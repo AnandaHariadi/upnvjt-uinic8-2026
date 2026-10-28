@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ShieldCheck, MapPin } from "lucide-react";
+import { ShieldCheck, MapPin, X } from "lucide-react";
 import PageWrapper from "@/components/common/PageWrapper";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import DataBadge from "@/components/common/DataBadge";
@@ -18,7 +18,7 @@ import { useJudgeGuideStore } from "@/store/judgeGuide.store";
 
 const ImpactMapCanvas = dynamic(() => import("@/components/features/local-impact-map/ImpactMapCanvas"), {
   ssr: false,
-  loading: () => <MapLoading className="h-[380px] lg:h-[560px]" />,
+  loading: () => <MapLoading className="h-full min-h-[380px] lg:min-h-[560px]" />,
 });
 
 const METRICS = Object.keys(METRIC_META) as DistrictMetric[];
@@ -38,6 +38,7 @@ export default function MapPageClient() {
       <div className="flex flex-col gap-4 lg:gap-5">
         <header className="flex flex-wrap items-start justify-between gap-3">
           <div>
+
             <div className="flex items-center gap-2 mb-1">
               <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-[#1D9E75] border border-emerald-200">
                 Portal Warga
@@ -92,22 +93,38 @@ export default function MapPageClient() {
         </fieldset>
 
         {/* Konten Peta & Samping */}
-        <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
-          <div>
-            <ErrorBoundary>
-              <ImpactMapCanvas stats={stats} metric={metric} selectedId={selectedId} onSelect={setSelectedId} className="h-[380px] lg:h-[560px]" />
-            </ErrorBoundary>
-            <p className="mt-2 text-[11px] text-gray-500">
+        <div className="grid gap-4 lg:grid-cols-[1fr_320px] items-stretch">
+          <div className="flex flex-col h-full min-h-[380px] lg:min-h-[560px]">
+
+            <div className="flex-1 min-h-[380px] lg:min-h-[560px] flex flex-col">
+              <ErrorBoundary>
+              <ImpactMapCanvas stats={stats} metric={metric} selectedId={selectedId} onSelect={setSelectedId} className="flex-1 w-full h-full min-h-[380px] lg:min-h-[560px]" />
+              </ErrorBoundary>
+            </div>
+            <p className="mt-2 text-[11px] text-gray-500 shrink-0">
               Besar lingkaran dan opasitas warna mencerminkan nilai {METRIC_META[metric].label.toLowerCase()} di setiap kecamatan. Garis putus-putus menunjukkan batas wilayah Surabaya.
             </p>
           </div>
 
           <aside className="flex flex-col gap-4" aria-label="Rincian Kecamatan">
             <section className="rounded-2xl border border-[#E5E7EB] bg-white shadow-xs overflow-hidden" aria-live="polite">
-              <h2 className="bg-[#0F3D2E] px-4 py-3 text-sm font-bold text-white flex items-center gap-2">
-                <MapPin size={15} />
+              <div className="bg-[#0F3D2E] px-4 py-3 text-sm font-bold text-white flex items-center justify-between">
+                <h2 className="text-sm font-bold text-white flex items-center gap-2">
+                <MapPin size={15} className="shrink-0" />
                 {selected ? `Kecamatan ${selected.kecamatan.name}` : "Rincian Kecamatan"}
-              </h2>
+                </h2>
+                {selected && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedId(null)}
+                    aria-label="Tutup rincian kecamatan"
+                    className="rounded-full p-1 text-emerald-200 hover:bg-white/20 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                    title="Kembali ke tampilan default"
+                  >
+                    <X size={15} />
+                  </button>
+                )}
+              </div>
               {selected ? (
                 <div className="flex flex-col gap-2 p-4 text-sm">
                   <p className="text-xs font-bold text-emerald-700">Wilayah Surabaya {selected.kecamatan.region}</p>

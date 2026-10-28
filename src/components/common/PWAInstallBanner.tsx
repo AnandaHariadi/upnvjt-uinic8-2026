@@ -48,7 +48,7 @@ export function PWAInstallBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ type: "spring", damping: 24, stiffness: 280 }}
-          className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-sm"
+          className="fixed bottom-4 left-4 right-4 z-[9999] mx-auto max-w-sm"
         >
           <div className="flex items-center gap-3 rounded-2xl border border-[#A8D5BA] bg-white px-4 py-3.5 shadow-2xl">
             <Smartphone size={24} className="shrink-0 text-[#2D5F3F]" aria-hidden="true" />

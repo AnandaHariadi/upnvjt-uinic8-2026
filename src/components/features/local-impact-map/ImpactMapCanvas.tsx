@@ -1,10 +1,31 @@
 "use client";
 
-import { CircleMarker, Tooltip } from "react-leaflet";
+import { useEffect, useRef } from "react";
+import { CircleMarker, Tooltip, useMap } from "react-leaflet";
 import SurabayaMap from "@/components/maps/SurabayaMap";
 import { METRIC_META, type DistrictMetric, type DistrictStats } from "@/lib/impact-aggregation";
+import { SURABAYA_CENTER } from "@/config/surabaya";
 
 /** Graduated circles at approximate kecamatan centroids (district-level only). */
+function SelectedDistrictFocus({ selectedId, stats }: { selectedId?: string | null; stats: DistrictStats[] }) {
+  const map = useMap();
+  const prevSelectedRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (selectedId) {
+      const target = stats.find((d) => d.kecamatan.id === selectedId);
+      if (target) {
+        map.panTo(target.kecamatan.center, { animate: true, duration: 0.6 });
+      }
+    } else if (prevSelectedRef.current && !selectedId) {
+      map.setView(SURABAYA_CENTER, 12, { animate: true });
+    }
+    prevSelectedRef.current = selectedId ?? null;
+  }, [selectedId, stats, map]);
+
+  return null;
+}
+
 export default function ImpactMapCanvas({
   stats,
   metric,
@@ -23,6 +44,7 @@ export default function ImpactMapCanvas({
 
   return (
     <SurabayaMap className={className}>
+      <SelectedDistrictFocus selectedId={selectedId} stats={stats} />
       {stats.map((d) => {
         const v = d[metric];
         const ratio = v / max;
