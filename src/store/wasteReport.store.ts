@@ -221,7 +221,7 @@ export const useWasteReportStore = create<WasteReportStore>()(
       reset: () => set({ reports: seedReports() }),
     }),
     {
-      name: "pacul-waste-reports",
+      name: "boni-waste-reports",
       version: 3,
       storage: createJSONStorage(() => localStorage),
       partialize: (s) => ({ reports: s.reports }),

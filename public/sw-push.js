@@ -1,4 +1,4 @@
-// PACUL Push Notification Service Worker
+// BONI Push Notification Service Worker
 // This file handles Web Push events and notification clicks.
 
 self.addEventListener('push', (event) => {
@@ -8,7 +8,7 @@ self.addEventListener('push', (event) => {
   try {
     data = event.data.json();
   } catch {
-    data = { title: 'PACUL', body: event.data.text(), url: '/dashboard' };
+    data = { title: 'BONI', body: event.data.text(), url: '/dashboard' };
   }
 
   const options = {
@@ -19,12 +19,12 @@ self.addEventListener('push', (event) => {
     data: { url: data.url ?? '/dashboard' },
     actions: data.actions ?? [],
     vibrate: [200, 100, 200],
-    tag: data.tag ?? 'pacul-notification',
+    tag: data.tag ?? 'boni-notification',
     renotify: true,
   };
 
   event.waitUntil(
-    self.registration.showNotification(data.title ?? 'PACUL', options)
+    self.registration.showNotification(data.title ?? 'BONI', options)
   );
 });
 

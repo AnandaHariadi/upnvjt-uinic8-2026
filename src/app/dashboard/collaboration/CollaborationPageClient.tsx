@@ -151,7 +151,7 @@ export default function CollaborationPageClient() {
               <h2 className="mb-2 text-sm font-bold text-[#1A1A1A]">Dua Kategori Postingan</h2>
               <p className="flex items-start gap-2 text-sm text-gray-700">
                 <BadgeCheck size={16} className="mt-0.5 shrink-0 text-emerald-600" aria-hidden="true" />
-                <span><strong>Aksi Terverifikasi</strong>: Kiriman aksi nyata yang telah lolos verifikasi AI PACUL, dilengkapi ringkasan dampak lingkungan langsung.</span>
+                <span><strong>Aksi Terverifikasi</strong>: Kiriman aksi nyata yang telah lolos verifikasi AI BONI, dilengkapi ringkasan dampak lingkungan langsung.</span>
               </p>
               <p className="mt-2 flex items-start gap-2 text-sm text-gray-700">
                 <MessageSquare size={16} className="mt-0.5 shrink-0 text-gray-500" aria-hidden="true" />

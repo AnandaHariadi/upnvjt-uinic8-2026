@@ -80,7 +80,7 @@ export const useAuthStore = create<AuthStore>()(
         ),
     }),
     {
-      name: "pacul-auth",
+      name: "boni-auth",
       partialize: (state) => ({
         user: state.user,
         isAuthenticated: state.isAuthenticated,

@@ -10,7 +10,7 @@ interface Badge3DProps {
 }
 
 /**
- * 3D Claymorphic & Skeuomorphic Badge Emblems for PACUL Surabaya.
+ * 3D Claymorphic & Skeuomorphic Badge Emblems for BONI Surabaya.
  * Modeled with dimensional rims, specular gloss highlights, golden laurels, and rich depth.
  */
 export default function Badge3DIcon({ id, earned = false, size = 68, className = "" }: Badge3DProps) {

@@ -27,8 +27,8 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
       <div>
         {/* Logo & Penanda Peran Warga */}
         <div className="flex h-16 items-center justify-between border-b border-[#E5E7EB] px-4">
-          <Link href="/" onClick={onLinkClick} aria-label="Beranda PACUL" className="transition-opacity hover:opacity-90">
-            <Image src="/logo.png" alt="PACUL" width={110} height={36} className="h-8 w-auto object-contain" priority />
+          <Link href="/" onClick={onLinkClick} aria-label="Beranda BONI" className="transition-opacity hover:opacity-90">
+            <Image src="/logo.png" alt="BONI" width={110} height={36} className="h-8 w-auto object-contain" priority />
           </Link>
           <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-[#0F3D2E]">
             Warga
@@ -49,8 +49,8 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
         {/* Navigation */}
         <nav className="p-3" aria-label="Dashboard">
           <ul className="flex flex-col gap-1">
-            {DASHBOARD_NAV.map(({ label, icon: Icon, href, exact, group, ...rest }, idx) => {
-              const live = "live" in rest ? rest.live : undefined;
+            {DASHBOARD_NAV.map(({ label, icon: Icon, href, exact, group }, idx) => {
+              // live removed
               const isActive = exact ? pathname === href : pathname.startsWith(href);
               const firstMore = group === "more" && DASHBOARD_NAV[idx - 1]?.group === "primary";
               return (
@@ -62,6 +62,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
                   )}
                   <Link
                     href={href}
+                    prefetch={true}
                     onClick={onLinkClick}
                     aria-current={isActive ? "page" : undefined}
                     className={cn(
@@ -71,11 +72,6 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
                   >
                     <Icon size={18} aria-hidden="true" className={cn("shrink-0", isActive ? "text-[#2D5F3F]" : "text-gray-400")} />
                     <span className="flex-1">{label}</span>
-                    {live && isLiveTracking && (
-                      <span className="rounded-full bg-red-500 px-1.5 py-0.5 text-[9px] font-bold uppercase text-white leading-none">
-                        LIVE
-                      </span>
-                    )}
                   </Link>
                 </li>
               );
@@ -100,7 +96,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
         </button>
 
         <div className="pt-0.5 text-center">
-          <p className="text-[11px] text-gray-500 font-medium">© 2026 PACUL · {teamConfig.teamName}</p>
+          <p className="text-[11px] text-gray-500 font-medium">© 2026 BONI · {teamConfig.teamName}</p>
           <p className="text-[10px] text-gray-400 mt-0.5">UPN &ldquo;Veteran&rdquo; Jawa Timur</p>
         </div>
       </div>

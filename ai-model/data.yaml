@@ -1,0 +1,15 @@
+# Dataset configuration for PACUL Waste Object Detection
+# Path relatif terhadap file data.yaml ini
+
+path: datasets/waste_detection
+train: images/train
+val: images/val
+test: images/val
+
+# 5 Kelas Target PACUL (Mencakup bungkus snack, kresek, botol, kardus, jelantah, organik, kertas):
+names:
+  0: sampah_plastik
+  1: kardus
+  2: jelantah
+  3: organik
+  4: kertas

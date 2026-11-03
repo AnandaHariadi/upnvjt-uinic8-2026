@@ -5,19 +5,19 @@
  */
 
 export const siteConfig = {
-  name: "PACUL",
-  fullName: "Platform Aksi Komunitas Untuk Lingkungan",
-  title: "PACUL | Platform Aksi Komunitas Untuk Lingkungan",
+  name: "BONI",
+  fullName: "Bank Observasi Nol Emisi Kota, Warga Aktif Nikmati Insentif",
+  title: "BONI | Bank Observasi Nol Emisi Kota, Warga Aktif Nikmati Insentif",
   tagline: "Turn verified green actions into measurable impact and local community value.",
   description:
-    "PACUL is a Surabaya-first community platform where residents record green actions, verify evidence with AI assistance, earn EcoPoints redeemable at local UMKM, and build privacy-aware local impact data for smarter community decisions.",
+    "BONI is a Surabaya-first community platform where residents record green actions, verify evidence with AI assistance, earn EcoPoints redeemable at local UMKM, and build privacy-aware local impact data for smarter community decisions.",
   pilotCity: "Surabaya",
   scalingStatement:
     "Designed as a Surabaya pilot with a scalable architecture for future expansion to other cities.",
   mapTileUrl:
     process.env.NEXT_PUBLIC_MAP_TILE_URL ??
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  repositoryUrl: "https://github.com/galiihajiip/pacul-gayatama",
+  repositoryUrl: "https://github.com/galiihajiip/boni-gayatama",
 } as const;
 
 export const teamConfig = {
@@ -39,7 +39,7 @@ export const competitionConfig = {
   secondarySubthemes: ["Public Services", "Social Development"],
 } as const;
 
-/** SDGs PACUL directly contributes to, with the concrete link in the product. */
+/** SDGs BONI directly contributes to, with the concrete link in the product. */
 export const sdgAlignment = [
   { goal: 11, name: "Kota & Komunitas Berkelanjutan", color: "#FD9D24", link: "Pelaporan titik sampah publik dan data dampak spasial 31 kecamatan se-Surabaya." },
   { goal: 12, name: "Konsumsi & Produksi Bertanggung Jawab", color: "#BF8B2E", link: "Verifikasi pemilahan sampah dapur dan pengumpulan minyak jelantah rumah tangga." },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portal Pemkot Surabaya | PACUL",
+  title: "Portal Pemkot Surabaya | BONI",
   description: "Pusat kendali dan pendukung keputusan Pemkot Surabaya: pemantauan laporan sampah, analitik aksi hijau, dan intelijen spasial 31 kecamatan.",
   robots: { index: false, follow: false },
 };

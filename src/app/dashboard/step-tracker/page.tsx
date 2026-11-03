@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import StepTrackerClient from "./StepTrackerClient";
 
 export const metadata: Metadata = {
-  title: "Pelacak Langkah Kaki | PACUL",
+  title: "Pelacak Langkah Kaki | BONI",
   description: "Pantau langkah kaki Anda dan ketahui estimasi emisi karbon yang berhasil dihindari dari mobilitas ramah lingkungan.",
 };
 

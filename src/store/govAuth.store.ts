@@ -107,7 +107,7 @@ export const useGovAuthStore = create<GovAuthStore>()(
       logout: () => {
         if (!isDemoMode) api.post("/auth/logout").catch(() => {});
         Cookies.remove(GOV_COOKIE);
-        localStorage.removeItem("pacul-gov-auth");
+        localStorage.removeItem("boni-gov-auth");
         set({ user: null, isAuthenticated: false });
       },
 
@@ -124,7 +124,7 @@ export const useGovAuthStore = create<GovAuthStore>()(
       },
     }),
     {
-      name: "pacul-gov-auth",
+      name: "boni-gov-auth",
       partialize: (state) => ({
         user: state.user,
         isAuthenticated: state.isAuthenticated,

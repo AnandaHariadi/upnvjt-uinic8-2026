@@ -19,6 +19,6 @@ export const useJudgeGuideStore = create<JudgeGuideStore>()(
       markVisited: (v) => set((s) => (s.visited[v] ? s : { visited: { ...s.visited, [v]: true } })),
       setDismissed: (dismissed) => set({ dismissed }),
     }),
-    { name: "pacul-judge-guide", storage: createJSONStorage(() => localStorage) }
+    { name: "boni-judge-guide", storage: createJSONStorage(() => localStorage) }
   )
 );

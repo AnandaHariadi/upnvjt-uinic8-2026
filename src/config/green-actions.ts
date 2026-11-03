@@ -1,5 +1,5 @@
 /**
- * Green Action catalogue: the core of PACUL's verification loop.
+ * Green Action catalogue: the core of BONI's verification loop.
  *
  * Each action defines:
  *   evidence requirement → what the AI looks for → impact metric → EcoPoints.

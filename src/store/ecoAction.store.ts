@@ -152,7 +152,7 @@ export const useEcoActionStore = create<EcoActionStore>()(
       reset: (mode) => set({ challenges: seedChallenges(mode) }),
     }),
     {
-      name: "pacul-challenges",
+      name: "boni-challenges",
       version: 3,
       storage: createJSONStorage(() => localStorage),
       partialize: (s) => ({ challenges: s.challenges }),

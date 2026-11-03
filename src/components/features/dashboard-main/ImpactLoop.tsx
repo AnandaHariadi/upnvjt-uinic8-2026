@@ -4,14 +4,14 @@ import type { LucideIcon } from "lucide-react";
 
 export const IMPACT_LOOP: { Icon: LucideIcon; title: string; text: string; href: string }[] = [
   { Icon: Camera, title: "Lakukan Aksi", text: "Pilah sampah, simpan jelantah, tanam pohon, atau naik transportasi umum.", href: "/dashboard/eco-action" },
-  { Icon: ShieldCheck, title: "Verifikasi AI", text: "Unggah foto bukti. AI PACUL memeriksa keaslian dan kriteria aksi lingkungan.", href: "/dashboard/eco-action" },
+  { Icon: ShieldCheck, title: "Verifikasi AI", text: "Unggah foto bukti. AI BONI memeriksa keaslian dan kriteria aksi lingkungan.", href: "/dashboard/eco-action" },
   { Icon: Star, title: "Raih EcoPoints", text: "Aksi terverifikasi menghasilkan poin, lencana capaian, dan progres tantangan.", href: "/dashboard/marketplace?tab=achievements" },
   { Icon: Store, title: "Tukar di UMKM", text: "Tukarkan poin dengan voucher belanja di Pusat Hadiah & Prestasi.", href: "/dashboard/marketplace?tab=voucher" },
   { Icon: Map, title: "Pantau Kecamatan", text: "Kontribusi Anda langsung menambah capaian hijau kecamatan di Peta Dampak.", href: "/dashboard/map" },
   { Icon: Landmark, title: "Dukung Kebijakan", text: "Data aksi warga menjadi rujukan kebijakan lingkungan Pemkot Surabaya.", href: "/gov/login" },
 ];
 
-/** Compact version of the PACUL loop for the dashboard. */
+/** Compact version of the BONI loop for the dashboard. */
 export default function ImpactLoop() {
   return (
     <section aria-labelledby="loop-heading" className="rounded-[12px] border border-[#E5E7EB] bg-white p-4 shadow-sm sm:p-5">

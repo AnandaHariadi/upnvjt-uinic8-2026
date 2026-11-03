@@ -35,7 +35,7 @@ export default function JudgeDemoGuide() {
       <div className="mb-3 flex items-start justify-between gap-3">
         <div>
           <h2 id="judge-guide-heading" className="text-sm font-bold text-[#1A1A1A]">Panduan Simulasi Evaluator · {doneCount}/{steps.length}</h2>
-          <p className="text-xs text-gray-500">Ikuti seluruh siklus PACUL dari awal hingga akhir. Akun demo disiapkan dengan data simulasi awal yang konsisten.</p>
+          <p className="text-xs text-gray-500">Ikuti seluruh siklus BONI dari awal hingga akhir. Akun demo disiapkan dengan data simulasi awal yang konsisten.</p>
         </div>
         <button type="button" onClick={() => setDismissed(true)} aria-label="Sembunyikan panduan demo" className="rounded-md p-1 text-gray-500 hover:bg-gray-100">
           <X size={16} />

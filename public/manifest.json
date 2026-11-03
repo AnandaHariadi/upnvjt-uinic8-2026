@@ -1,6 +1,6 @@
 {
-  "name": "PACUL | Platform Aksi Komunitas Untuk Lingkungan",
-  "short_name": "PACUL",
+  "name": "BONI | Bank Observasi Nol Emisi Kota, Warga Aktif Nikmati Insentif",
+  "short_name": "BONI",
   "description": "Surabaya-first community platform: verify green actions, earn EcoPoints at local UMKM, and see district-level environmental impact.",
   "start_url": "/dashboard",
   "scope": "/",

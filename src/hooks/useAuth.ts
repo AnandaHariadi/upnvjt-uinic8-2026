@@ -50,7 +50,7 @@ export function useAuth() {
     onSuccess: (data) => {
       persistSession(data);
       setUser(data.user);
-      toast.success(`Welcome to PACUL, ${data.user.name}!`);
+      toast.success(`Welcome to BONI, ${data.user.name}!`);
     },
     onError: (error: ApiError) => {
       const firstError = Object.values(error.errors || {})[0]?.[0];
@@ -63,7 +63,7 @@ export function useAuth() {
     onSettled: () => {
       Cookies.remove(CITIZEN_COOKIE);
       localStorage.removeItem(CITIZEN_COOKIE);
-      localStorage.removeItem("pacul-auth");
+      localStorage.removeItem("boni-auth");
       clearStore();
       queryClient.clear();
       router.push("/login");

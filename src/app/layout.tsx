@@ -55,16 +55,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: siteConfig.title, template: "%s" },
   description: siteConfig.description,
-  applicationName: "PACUL",
+  applicationName: "BONI",
   authors: teamConfig.members.map((name) => ({ name })),
-  keywords: ["PACUL", "Surabaya", "green action", "EcoPoints", "UMKM", "sustainability", competitionConfig.name],
+  keywords: ["BONI", "Surabaya", "green action", "EcoPoints", "UMKM", "sustainability", competitionConfig.name],
   openGraph: {
     type: "website",
-    siteName: "PACUL",
+    siteName: "BONI",
     title: siteConfig.title,
     description: siteConfig.description,
     locale: "en_US",
-    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "PACUL logo" }],
+    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "BONI logo" }],
   },
   twitter: { card: "summary", title: siteConfig.title, description: siteConfig.description },
   manifest: "/manifest.json",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  appleWebApp: { capable: true, statusBarStyle: "default", title: "PACUL" },
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "BONI" },
 };
 
 export const viewport = {

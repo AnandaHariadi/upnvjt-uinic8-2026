@@ -1,5 +1,5 @@
 /**
- * Turns image labels from an AI vision model into a PACUL verification
+ * Turns image labels from an AI vision model into a BONI verification
  * decision. Pure and deterministic: same labels in → same decision out.
  */
 

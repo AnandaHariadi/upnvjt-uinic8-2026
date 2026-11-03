@@ -394,7 +394,7 @@ export function FlagshipShowcase() {
                   <div className="border-t border-gray-200 pt-4 flex flex-col items-center">
                     <div className="h-9 w-48 bg-[repeating-linear-gradient(90deg,#0F3D2E,#0F3D2E_2px,transparent_2px,transparent_4px,#0F3D2E_4px,#0F3D2E_7px,transparent_7px,transparent_9px)] rounded-xs opacity-75" />
                     <span className="mt-1 font-mono text-[10px] font-bold tracking-widest text-gray-500">
-                      SBY-2026-PACUL-7789
+                      SBY-2026-BONI-7789
                     </span>
                   </div>
                 </div>
@@ -547,7 +547,7 @@ export function BuiltForSurabaya() {
             & Tradisi Gotong Royong
           </h2>
           <p className="mt-4 text-xs sm:text-sm leading-relaxed text-emerald-100/80">
-            Warga Surabaya sudah lama mandiri menjaga lingkungannya. PACUL hadir memperkuat tradisi ini agar setiap kebaikan terdata transparan dan berbuah manfaat timbal balik.
+            Warga Surabaya sudah lama mandiri menjaga lingkungannya. BONI hadir memperkuat tradisi ini agar setiap kebaikan terdata transparan dan berbuah manfaat timbal balik.
           </p>
         </div>
 
@@ -581,7 +581,7 @@ export function Alignment() {
             Pembangunan Berkelanjutan (SDGs)
           </h2>
           <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#4D6D5B]">
-            Kontribusi nyata PACUL terhadap target keberlanjutan perkotaan dan iklim global.
+            Kontribusi nyata BONI terhadap target keberlanjutan perkotaan dan iklim global.
           </p>
         </div>
 
@@ -708,7 +708,7 @@ export function FinalCta() {
           {/* Tajuk Utama Banner */}
           <div className="relative z-10 text-center max-w-2xl mx-auto">
             <h2 className="text-2xl font-black tracking-tight text-white sm:text-4xl leading-tight">
-              Mulai Jelajahi Ekosistem PACUL
+              Mulai Jelajahi Ekosistem BONI
             </h2>
 
             <p className="mx-auto mt-3 max-w-xl text-xs sm:text-sm leading-relaxed text-emerald-100/80 font-medium">

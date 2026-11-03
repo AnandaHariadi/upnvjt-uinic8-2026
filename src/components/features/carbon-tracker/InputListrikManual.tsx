@@ -41,7 +41,7 @@ const HUNIAN_OPTIONS: { value: HouseholdProfile["type"]; label: string; sub: str
 const SUMBER_OPTIONS = ["Manual entry", "From bill scan (OCR)", "From my PLN app"] as const;
 type Sumber = typeof SUMBER_OPTIONS[number];
 
-const LS_KEY = "pacul-household-profile";
+const LS_KEY = "boni-household-profile";
 
 /* ─────────────── helpers ─────────────── */
 const fmtRp = (n: number) =>

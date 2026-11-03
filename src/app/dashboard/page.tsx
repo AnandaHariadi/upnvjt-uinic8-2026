@@ -9,7 +9,7 @@ import TipsHariIni from "@/components/features/dashboard-main/TipsHariIni";
 import GreenActionHistory from "@/components/features/green-action/GreenActionHistory";
 
 export const metadata: Metadata = {
-  title: "Portal Warga Surabaya | PACUL",
+  title: "Portal Warga Surabaya | BONI",
   description: "Portal Aksi Komunitas Warga Surabaya: Saldo EcoPoints, verifikasi aksi hijau AI, tantangan aktif, dan dampak lingkungan.",
 };
 

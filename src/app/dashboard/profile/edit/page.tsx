@@ -165,7 +165,7 @@ export default function ProfileEditPage() {
       await authService.deleteAccount();
       Cookies.remove(CITIZEN_COOKIE);
       localStorage.removeItem(CITIZEN_COOKIE);
-      localStorage.removeItem("pacul-auth");
+      localStorage.removeItem("boni-auth");
       useAuthStore.getState().logout();
       window.location.href = "/login";
     } catch (e) {

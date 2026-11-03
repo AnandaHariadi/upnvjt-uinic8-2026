@@ -392,7 +392,7 @@ function ReportsSection({
   const paginated = filtered.slice((page - 1) * pageSize, page * pageSize);
 
   const exportCsv = () => {
-    downloadCsv(`pacul-laporan-sampah-${new Date().toISOString().slice(0, 10)}.csv`, [
+    downloadCsv(`boni-laporan-sampah-${new Date().toISOString().slice(0, 10)}.csv`, [
       [
         "ID",
         "Judul Laporan",
@@ -651,7 +651,7 @@ export default function GovDashboardClient() {
   };
 
   const exportDistricts = () => {
-    downloadCsv(`pacul-rekap-31-kecamatan-${new Date().toISOString().slice(0, 10)}.csv`, [
+    downloadCsv(`boni-rekap-31-kecamatan-${new Date().toISOString().slice(0, 10)}.csv`, [
       [
         "Kecamatan",
         "Wilayah",
@@ -735,7 +735,7 @@ export default function GovDashboardClient() {
             >
               <Menu size={22} aria-hidden="true" />
             </button>
-            <Image src="/logo.png" alt="PACUL" width={100} height={32} className="ml-3 h-7 w-auto object-contain" />
+            <Image src="/logo.png" alt="BONI" width={100} height={32} className="ml-3 h-7 w-auto object-contain" />
             <span className="ml-2 rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 text-[10px] font-bold text-[#0F3D2E]">
               Pemkot Surabaya
             </span>

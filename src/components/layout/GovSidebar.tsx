@@ -71,7 +71,7 @@ function GovSidebarContent({
         {/* Header Logo & Penanda Peran Pemkot */}
         <div className="flex h-16 items-center justify-between border-b border-[#E5E7EB] px-4">
           <Link href="/gov/dashboard" aria-label="Beranda Portal Pemkot" className="transition-opacity hover:opacity-90">
-            <Image src="/logo.png" alt="PACUL" width={110} height={36} className="h-8 w-auto object-contain" priority />
+            <Image src="/logo.png" alt="BONI" width={110} height={36} className="h-8 w-auto object-contain" priority />
           </Link>
           <span className="shrink-0 whitespace-nowrap rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-[#0F3D2E]">
             Pemkot
@@ -141,7 +141,7 @@ function GovSidebarContent({
         </button>
 
         <div className="pt-1 text-center">
-          <p className="text-[11px] text-gray-500 font-medium">© 2026 PACUL · Pemkot Surabaya</p>
+          <p className="text-[11px] text-gray-500 font-medium">© 2026 BONI · Pemkot Surabaya</p>
           <p className="text-[10px] text-gray-400">Pusat Kendali Respon Lingkungan</p>
         </div>
       </div>

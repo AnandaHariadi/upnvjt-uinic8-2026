@@ -7,7 +7,7 @@ import { GREEN_ACTIONS, type GreenActionType } from "@/config/green-actions";
 import type { WasteCategory } from "@/store/wasteReport.store";
 import type { RewardIconKey } from "@/data/demo/umkm-rewards";
 
-/** Single registry of the icons that represent PACUL domain concepts. */
+/** Single registry of the icons that represent BONI domain concepts. */
 
 const GREEN_ACTION_ICONS: Record<GreenActionType, LucideIcon> = {
   waste_sorting: Recycle,

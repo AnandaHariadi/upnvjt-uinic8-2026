@@ -37,18 +37,18 @@ export default function Navbar() {
           className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8"
           aria-label="Navigasi Utama"
         >
-          {/* Brand PACUL */}
+          {/* Brand BONI */}
           <Link
             href="/"
-            className="flex shrink-0 items-center transition-opacity hover:opacity-90"
-            aria-label="Beranda PACUL"
+            className="flex shrink-0 items-center transition-opacity hover:opacity-90 py-1"
+            aria-label="Beranda BONI"
           >
             <Image
               src="/logo.png"
-              alt="PACUL"
-              width={132}
-              height={44}
-              className="h-9 sm:h-10 w-auto object-contain"
+              alt="BONI"
+              width={145}
+              height={48}
+              className="h-10 sm:h-11 w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
               priority
             />
           </Link>
@@ -146,7 +146,7 @@ export default function Navbar() {
               <div className="flex h-[72px] items-center justify-between border-b border-gray-100 px-6">
                 <Image
                   src="/logo.png"
-                  alt="PACUL"
+                  alt="BONI"
                   width={110}
                   height={36}
                   className="h-8 w-auto object-contain"
@@ -215,7 +215,7 @@ export default function Navbar() {
                   </>
                 )}
                 <p className="mt-2 text-center text-[10px] text-gray-400">
-                  © 2026 PACUL · {teamConfig.teamName}
+                  © 2026 BONI · {teamConfig.teamName}
                 </p>
               </div>
             </motion.div>

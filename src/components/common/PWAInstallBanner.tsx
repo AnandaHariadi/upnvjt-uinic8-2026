@@ -18,7 +18,7 @@ export function PWAInstallBanner() {
     const handler = (e: Event) => {
       e.preventDefault();
       setPrompt(e as BeforeInstallPromptEvent);
-      if (typeof window !== "undefined" && sessionStorage.getItem("pacul-dismiss-pwa")) {
+      if (typeof window !== "undefined" && sessionStorage.getItem("boni-dismiss-pwa")) {
         return;
       }
       const timer = setTimeout(() => setShow(true), 30_000);
@@ -34,7 +34,7 @@ export function PWAInstallBanner() {
     await prompt.prompt();
     const result = await prompt.userChoice;
     if (result.outcome === "accepted") {
-      toast.success("PACUL installed");
+      toast.success("BONI installed");
     }
     setShow(false);
     setPrompt(null);
@@ -53,7 +53,7 @@ export function PWAInstallBanner() {
           <div className="flex items-center gap-3 rounded-2xl border border-[#A8D5BA] bg-white px-4 py-3.5 shadow-2xl">
             <Smartphone size={24} className="shrink-0 text-[#2D5F3F]" aria-hidden="true" />
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-[#1A1A1A]">Install PACUL</p>
+              <p className="text-sm font-bold text-[#1A1A1A]">Install BONI</p>
               <p className="text-xs text-gray-500">Faster access and camera capture on your phone</p>
             </div>
             <button
@@ -65,7 +65,7 @@ export function PWAInstallBanner() {
             <button
               onClick={() => {
                 setShow(false);
-                if (typeof window !== "undefined") sessionStorage.setItem("pacul-dismiss-pwa", "1");
+                if (typeof window !== "undefined") sessionStorage.setItem("boni-dismiss-pwa", "1");
               }}
               aria-label="Tutup notifikasi instalasi"
               className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100"

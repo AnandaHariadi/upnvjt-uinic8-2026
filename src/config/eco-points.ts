@@ -1,5 +1,5 @@
 /**
- * EcoPoints: PACUL's reward points for verified green actions.
+ * EcoPoints: BONI's reward points for verified green actions.
  *
  * EcoPoints are an in-app loyalty point, not money and not a token: they
  * cannot be transferred or cashed out, and are redeemed only for rewards in

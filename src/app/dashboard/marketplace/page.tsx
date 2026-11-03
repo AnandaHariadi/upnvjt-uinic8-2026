@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import MarketplaceClient from "./MarketplaceClient";
 
 export const metadata: Metadata = {
-  title: "Pusat Hadiah & Prestasi | PACUL",
+  title: "Pusat Hadiah & Prestasi | BONI",
   description: "Tukarkan EcoPoints dengan voucher UMKM lokal Surabaya, pantau papan peringkat warga, raih lencana prestasi, dan ikuti tantangan komunitas.",
 };
 

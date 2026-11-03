@@ -10,11 +10,11 @@ import { useStepTrackerStore } from "@/store/stepTracker.store";
 import { DEMO_USER_ID } from "@/lib/demo-mode";
 
 /**
- * All PACUL prototype state lives in this browser (localStorage). These
+ * All BONI prototype state lives in this browser (localStorage). These
  * helpers keep it deterministic for judging and isolated between accounts.
  */
 
-const OWNER_KEY = "pacul-session-owner";
+const OWNER_KEY = "boni-session-owner";
 
 /** Reset every client store. `demo` loads the seeded judge scenario; `empty` gives a fresh account. */
 export function resetClientState(mode: "demo" | "empty", userId: string) {
@@ -27,7 +27,7 @@ export function resetClientState(mode: "demo" | "empty", userId: string) {
   useStepTrackerStore.getState().reset();
   try {
     localStorage.setItem(OWNER_KEY, userId);
-    localStorage.removeItem("pacul-judge-guide");
+    localStorage.removeItem("boni-judge-guide");
   } catch {
     /* storage unavailable: state still reset in memory */
   }

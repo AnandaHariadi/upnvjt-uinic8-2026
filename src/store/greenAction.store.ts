@@ -70,7 +70,7 @@ export const useGreenActionStore = create<GreenActionStore>()(
       reset: (mode, userId) => set({ actions: mode === "demo" ? demoSeed(userId) : [] }),
     }),
     {
-      name: "pacul-green-actions",
+      name: "boni-green-actions",
       version: 1,
       storage: createJSONStorage(() => localStorage),
     }

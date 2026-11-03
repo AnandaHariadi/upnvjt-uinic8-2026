@@ -48,7 +48,7 @@ function VoucherCard({ voucher, cardRef }: { voucher: UserVoucher; cardRef?: Rea
   return (
     <div ref={cardRef} className="flex flex-col items-center gap-3 rounded-2xl border border-[#A8D5BA] bg-white p-5">
       <div className="flex w-full items-center justify-between">
-        <span className="text-xs font-extrabold tracking-wide text-[#2D5F3F]">PACUL · BURSA PASAR HIJAU</span>
+        <span className="text-xs font-extrabold tracking-wide text-[#2D5F3F]">BONI · BURSA PASAR HIJAU</span>
         <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-bold text-amber-800">VOUCHER SIMULASI</span>
       </div>
       <span className={cn("w-full rounded-lg py-1 text-center text-xs font-bold", STATUS_STYLE[status].className)}>
@@ -77,7 +77,7 @@ async function downloadCard(el: HTMLDivElement | null, code: string) {
     const canvas = await html2canvas(el, { scale: 2, backgroundColor: "#ffffff" });
     const a = document.createElement("a");
     a.href = canvas.toDataURL("image/png");
-    a.download = `pacul-voucher-${code}.png`;
+    a.download = `boni-voucher-${code}.png`;
     a.click();
     toast.success("Gambar voucher berhasil disimpan");
   } catch {

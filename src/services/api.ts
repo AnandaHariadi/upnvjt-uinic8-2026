@@ -30,7 +30,7 @@ _axios.interceptors.response.use(
       const token = localStorage.getItem("pacul_token");
       if (!token?.startsWith("demo_") && token !== "guest_token_demo") {
         localStorage.removeItem("pacul_token");
-        localStorage.removeItem("pacul-auth");
+        localStorage.removeItem("boni-auth");
         if (!window.location.pathname.includes("/login")) {
           window.location.href = "/login";
         }

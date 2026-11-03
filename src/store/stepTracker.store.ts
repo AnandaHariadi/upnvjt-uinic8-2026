@@ -79,7 +79,7 @@ export const useStepTrackerStore = create<StepTrackerStore>()(
         set({ todaySteps: 0, hourlyData: INITIAL_HOURLY, weeklyData: SAMPLE_WEEKLY, milestoneDay: today(), milestones: NO_MILESTONES }),
     }),
     {
-      name: "pacul-step-tracker",
+      name: "boni-step-tracker",
       version: 2,
       migrate: () => ({ todaySteps: 0, hourlyData: INITIAL_HOURLY, weeklyData: SAMPLE_WEEKLY, milestoneDay: today(), milestones: NO_MILESTONES }),
       partialize: (s) => ({

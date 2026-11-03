@@ -6,7 +6,7 @@ import GreenActionVerifier from "@/components/features/green-action/GreenActionV
 import GreenActionHistory from "@/components/features/green-action/GreenActionHistory";
 
 export const metadata: Metadata = {
-  title: "Verifikasi Aksi Hijau | PACUL",
+  title: "Verifikasi Aksi Hijau | BONI",
   description:
     "Catat aksi ramah lingkungan, verifikasi bukti foto dengan bantuan AI, dan dapatkan EcoPoints untuk ditukarkan di UMKM lokal Surabaya.",
 };
@@ -19,7 +19,7 @@ export default function EcoActionPage() {
           <p className="text-xs font-bold uppercase tracking-wider text-[#2D5F3F]">Aksi Hijau</p>
           <h1 className="text-xl font-bold text-[#1A1A1A] sm:text-2xl">Verifikasi Aksi Nyata Anda untuk Surabaya</h1>
           <p className="mt-1 max-w-2xl text-sm text-gray-500">
-            Pilih kategori aksi, unggah bukti foto, dan peroleh verifikasi otomatis dengan bantuan AI PACUL. Setiap aksi
+            Pilih kategori aksi, unggah bukti foto, dan peroleh verifikasi otomatis dengan bantuan AI BONI. Setiap aksi
             terverifikasi menambah saldo EcoPoints yang dapat ditukarkan di Pusat Hadiah & Prestasi.
           </p>
         </header>

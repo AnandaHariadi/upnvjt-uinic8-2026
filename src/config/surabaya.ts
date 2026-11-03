@@ -1,5 +1,5 @@
 /**
- * Surabaya administrative geography used by PACUL's pilot.
+ * Surabaya administrative geography used by BONI's pilot.
  *
  * - The 31 kecamatan (districts) and their five administrative regions follow
  *   Kota Surabaya's official division.

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LaporanSampahClient from "./LaporanSampahClient";
 
 export const metadata: Metadata = {
-  title: "Laporan Timbulan Sampah | PACUL",
+  title: "Laporan Timbulan Sampah | BONI",
   description: "Laporkan titik timbulan sampah liar di fasilitas umum Surabaya dan pantau status tindak lanjut petugas kebersihan.",
 };
 

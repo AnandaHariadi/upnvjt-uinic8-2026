@@ -39,3 +39,8 @@ next-env.d.ts
 
 # Laravel backend (local only, not deployed)
 pacul-backend/
+
+# AI Model datasets and training runs (keep code & best.pt)
+ai-model/datasets/
+ai-model/runs/
+ai-model/wandb/

@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4 lg:col-span-5">
             <Image
               src="/logo-white.png"
-              alt="PACUL"
+              alt="BONI"
               width={124}
               height={40}
               className="h-8 w-auto object-contain object-left"
@@ -96,7 +96,7 @@ export default function Footer() {
       {/* Garis Bawah Hak Cipta & Kota */}
       <div className="border-t border-white/10 bg-black/20">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8 text-xs text-emerald-100/60">
-          <p>© 2026 PACUL · Platform Aksi Komunitas Untuk Lingkungan.</p>
+          <p>© 2026 BONI · Bank Observasi Nol Emisi Kota, Warga Aktif Nikmati Insentif.</p>
           <p>Kota Surabaya, Jawa Timur, Indonesia</p>
         </div>
       </div>

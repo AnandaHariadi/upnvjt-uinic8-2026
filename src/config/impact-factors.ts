@@ -2,7 +2,7 @@
  * Centralized environmental conversion factors.
  *
  * Every number used to turn an activity into an ESTIMATED CO₂e value lives
- * here, with its unit and source. PACUL never measures emissions directly :
+ * here, with its unit and source. BONI never measures emissions directly :
  * all results derived from these factors must be labelled "estimated".
  */
 
@@ -26,7 +26,7 @@ export const IMPACT_FACTORS = {
     sourceUrl: "https://gatrik.esdm.go.id/frontend/download_index/?kode_category=emisi_pl",
     lastReviewed: "2026-09",
     notes:
-      "Value carried over from the original PACUL implementation. Published JAMALI factors have ranged roughly 0.79–0.89 t CO₂/MWh depending on year and margin type; confirm against the latest ESDM edition before citing externally.",
+      "Value carried over from the original BONI implementation. Published JAMALI factors have ranged roughly 0.79–0.89 t CO₂/MWh depending on year and margin type; confirm against the latest ESDM edition before citing externally.",
   },
   motorcycleTravel: {
     metric: "Average motorcycle travel emissions (avoided when replaced by walking, cycling or public transport)",

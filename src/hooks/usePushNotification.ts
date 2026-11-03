@@ -53,7 +53,7 @@ export function usePushNotification() {
         });
 
         await sendSubscriptionToServer(subscription);
-        toast.success("PACUL notifications enabled");
+        toast.success("BONI notifications enabled");
       } catch {
         toast.error("Could not enable notifications. Please try again.");
       }

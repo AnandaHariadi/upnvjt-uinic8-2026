@@ -194,7 +194,7 @@ export default function GreenActionVerifier() {
             title={service.provider}
           >
             <ShieldCheck size={12} aria-hidden="true" />
-            {service.mode === "demo" ? "Mode Simulasi: Verifikasi teruji" : service.available ? "AI Aktif: Google Cloud Vision" : "AI Offline: Antrean tinjauan manual"}
+            {service.mode === "demo" ? "Mode Simulasi: Verifikasi teruji" : service.available ? (service.provider.includes("YOLO") ? "AI Aktif: BONI Custom YOLO11" : `AI Aktif: ${service.provider}`) : "AI Offline: Antrean tinjauan manual"}
           </span>
         )}
       </div>

@@ -122,7 +122,7 @@ export const useEcoPointsStore = create<EcoPointsStore>()(
         set(mode === "demo" ? demoState() : { balance: 0, lifetimeEarned: 0, challengesCompleted: 0, transactions: [] }),
     }),
     {
-      name: "pacul-ecopoints",
+      name: "boni-ecopoints",
       version: 1,
       storage: createJSONStorage(() => localStorage),
       partialize: (s) => ({

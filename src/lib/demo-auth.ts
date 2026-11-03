@@ -3,7 +3,7 @@ import { DEFAULT_PREFERENCES } from "@/store/auth.store";
 import type { RegisterDTO, AuthResponse, UpdateProfileDTO, ChangePasswordDTO } from "@/services/auth.service";
 import { demoDelay, DEMO_ACCOUNT, DEMO_GOV_ACCOUNT, DEMO_USER_ID } from "./demo-mode";
 
-const USERS_KEY = "pacul-demo-users";
+const USERS_KEY = "boni-demo-users";
 
 interface StoredUser extends User {
   password: string;
@@ -106,7 +106,7 @@ export const demoAuth = {
     return {
       token: makeToken(newUser.id),
       user: toPublicUser(newUser),
-      message: "Account created. Welcome to PACUL.",
+      message: "Account created. Welcome to BONI.",
     };
   },
 

@@ -75,7 +75,7 @@ export const useVoucherStore = create<VoucherStore>()(
           rewardId,
           reward,
           code,
-          qrData: JSON.stringify({ app: "PACUL", demo: true, code, reward: rewardId, merchant: reward.merchant.id, exp: expiresAt }),
+          qrData: JSON.stringify({ app: "BONI", demo: true, code, reward: rewardId, merchant: reward.merchant.id, exp: expiresAt }),
           ecoPointsSpent: reward.ecoPointsCost,
           status: "active",
           redeemedAt: new Date(now).toISOString(),
@@ -105,7 +105,7 @@ export const useVoucherStore = create<VoucherStore>()(
       reset: () => set({ rewards: DEMO_REWARDS, userVouchers: [] }),
     }),
     {
-      name: "pacul-bursa-pasar-hijau",
+      name: "boni-bursa-pasar-hijau",
       version: 2,
       storage: createJSONStorage(() => localStorage),
       migrate: () => ({ rewards: DEMO_REWARDS, userVouchers: [] }),

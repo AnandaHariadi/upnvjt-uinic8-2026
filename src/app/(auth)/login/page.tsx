@@ -145,7 +145,7 @@ function LoginContent() {
           <Link href="/" className="inline-block transition-opacity hover:opacity-90">
             <Image
               src="/logo-white.png"
-              alt="PACUL"
+              alt="BONI"
               width={150}
               height={44}
               className="h-9 w-auto object-contain"
@@ -231,7 +231,7 @@ function LoginContent() {
           <Link href="/">
             <Image
               src="/logo.png"
-              alt="PACUL"
+              alt="BONI"
               width={120}
               height={38}
               className="h-8 w-auto object-contain"

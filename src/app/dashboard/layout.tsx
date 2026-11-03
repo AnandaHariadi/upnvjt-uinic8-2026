@@ -45,7 +45,7 @@ export default function DashboardLayout({
             >
               <Menu size={22} aria-hidden="true" />
             </button>
-            <Image src="/logo.png" alt="PACUL" width={100} height={32} className="ml-3 h-8 w-auto object-contain" />
+            <Image src="/logo.png" alt="BONI" width={100} height={32} className="ml-3 h-8 w-auto object-contain" />
           </div>
           <Link
             href="/"

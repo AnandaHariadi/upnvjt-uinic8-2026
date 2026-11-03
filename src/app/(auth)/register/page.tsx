@@ -83,7 +83,7 @@ function WelcomeModal({ name, initials, color, onStart }: {
         >
           {initials}
         </div>
-        <h2 className="text-xl font-bold text-[#1A1A1A]">Welcome to PACUL, {name}!</h2>
+        <h2 className="text-xl font-bold text-[#1A1A1A]">Welcome to BONI, {name}!</h2>
         <div className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-[#F0FAF4] p-3">
           <Sprout size={20} className="shrink-0 text-[#2D5F3F]" aria-hidden="true" />
           <div className="text-left">
@@ -163,7 +163,7 @@ export default function RegisterPage() {
           style={{ background: "linear-gradient(145deg, #1a3d28 0%, #2D5F3F 55%, #3a7a52 100%)" }}
         >
           <div className="flex flex-col items-center gap-4 text-center">
-            <Image src="/logo-white.png" alt="PACUL" width={180} height={60} className="h-16 w-auto object-contain" />
+            <Image src="/logo-white.png" alt="BONI" width={180} height={60} className="h-16 w-auto object-contain" />
             <p className="text-base font-medium text-white/80">Be part of a greener Surabaya, one action at a time</p>
           </div>
 
@@ -184,7 +184,7 @@ export default function RegisterPage() {
         {/* ── Right panel ── */}
         <div className="flex flex-1 flex-col items-center justify-center bg-white px-6 py-12 lg:px-16">
           <div className="mb-8 flex items-center justify-center lg:hidden">
-            <Image src="/logo.png" alt="PACUL" width={140} height={48} className="h-12 w-auto object-contain" />
+            <Image src="/logo.png" alt="BONI" width={140} height={48} className="h-12 w-auto object-contain" />
           </div>
 
           <div className="w-full max-w-md">
@@ -329,7 +329,7 @@ export default function RegisterPage() {
                   {/* City (pilot) */}
                   <div className="flex items-center gap-2 rounded-lg bg-[#F0FAF4] px-3 py-2.5 text-sm text-[#2D5F3F]">
                     <MapPin size={16} aria-hidden="true" />
-                    <span><strong>City: Surabaya.</strong> PACUL is currently a Surabaya pilot.</span>
+                    <span><strong>City: Surabaya.</strong> BONI is currently a Surabaya pilot.</span>
                   </div>
 
                   {/* Kecamatan */}

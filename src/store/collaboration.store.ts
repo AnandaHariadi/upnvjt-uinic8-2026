@@ -13,7 +13,7 @@ function seedPosts(): CommunityPost[] {
       createdAt: hoursAgo(1),
       type: "IDEA",
       content:
-        "Rek, yo opo lek saben balai RW disiapno drop-box khusus botol plastik karo minyak jelantah? Nang peta PACUL ketok warga Gubeng wes paling sregep pilah sampah, eman lek ga dimaksimalkan!",
+        "Rek, yo opo lek saben balai RW disiapno drop-box khusus botol plastik karo minyak jelantah? Nang peta BONI ketok warga Gubeng wes paling sregep pilah sampah, eman lek ga dimaksimalkan!",
       tags: ["#PilahSampah", "#Gubeng", "#Jelantah"],
       likes: 38,
       replies: 14,
@@ -95,7 +95,7 @@ function seedPosts(): CommunityPost[] {
       createdAt: hoursAgo(11),
       type: "IDEA",
       content:
-        "Usul rek, CFD Taman Bungkul sesuk yok opo lek PACUL nggae booth edukasi pilah sampah organik? Cik arek enom-enom ga mung jogging tok tapi paham daur ulang.",
+        "Usul rek, CFD Taman Bungkul sesuk yok opo lek BONI nggae booth edukasi pilah sampah organik? Cik arek enom-enom ga mung jogging tok tapi paham daur ulang.",
       tags: ["#CFDSurabaya", "#Tambaksari", "#EdukasiHijau"],
       likes: 62,
       replies: 28,
@@ -200,7 +200,7 @@ function seedPosts(): CommunityPost[] {
       author: { name: "Rizky Firmansyah", initials: "RF", kecamatan: "Dukuh Pakis" },
       createdAt: hoursAgo(30),
       type: "VERIFIED_ACTION",
-      content: "Ganti kabeh lampu bohlam omah gawe LED hemat energi. Tagihan PLN mudun lumayan akeh, PACUL verifikasi cepet pol!",
+      content: "Ganti kabeh lampu bohlam omah gawe LED hemat energi. Tagihan PLN mudun lumayan akeh, BONI verifikasi cepet pol!",
       tags: ["#HematListrik", "#DukuhPakis"],
       verifiedAction: {
         actionId: "demo_va_5",
@@ -405,7 +405,7 @@ function seedPosts(): CommunityPost[] {
       author: { name: "Bella Cantika", initials: "BC", kecamatan: "Genteng" },
       createdAt: hoursAgo(84),
       type: "VERIFIED_ACTION",
-      content: "Tuku es kopi ning kedai lokal Genteng gowo tumbler PACUL, dapet potongan 15% plus poin aksi terverifikasi! Mantep pol rek!",
+      content: "Tuku es kopi ning kedai lokal Genteng gowo tumbler BONI, dapet potongan 15% plus poin aksi terverifikasi! Mantep pol rek!",
       tags: ["#PasarHijau", "#KopiHijau", "#Suroboyo"],
       verifiedAction: {
         actionId: "demo_va_10",
@@ -488,7 +488,7 @@ export const useCollaborationStore = create<CollaborationStore>()(
       reset: () => set({ posts: seedPosts() }),
     }),
     {
-      name: "pacul-community",
+      name: "boni-community",
       version: 3,
       storage: createJSONStorage(() => localStorage),
       migrate: () => ({ posts: seedPosts() }),
