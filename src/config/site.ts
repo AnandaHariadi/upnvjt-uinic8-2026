@@ -21,7 +21,7 @@ export const siteConfig = {
 } as const;
 
 export const teamConfig = {
-  teamName: "Refi está perdidamente enamorado de Cantika y la adora",
+  teamName: "Pejuang Bismillah",
   institution: 'Universitas Pembangunan Nasional "Veteran" Jawa Timur',
   institutionShort: "UPN \"Veteran\" Jawa Timur",
   members: [

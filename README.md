@@ -364,8 +364,8 @@ For evaluators and judges reviewing the platform:
 1. **One-Click Demo Access**: Visit `/` and click **"Explore Demo"** (or navigate directly to [`/demo`](src/app/demo/page.tsx)).
    - Automatically initializes a pre-configured account with 500 EcoPoints, active challenges, and sample history.
 2. **Evaluation Credentials**:
-   - **Citizen Demo**: `demo@pacul.app` / `Demo1234!`
-   - **Government Officer Demo**: `gov-demo@pacul.app` / `GovDemo1234!`
+   - **Citizen Demo**: `demo@boni.app` / `Demo1234!`
+   - **Government Officer Demo**: `gov-demo@boni.app` / `GovDemo1234!`
 3. **Interactive Judge Guide**: The citizen dashboard displays an interactive checklist that automatically marks items as completed as you test each feature.
 
 ---

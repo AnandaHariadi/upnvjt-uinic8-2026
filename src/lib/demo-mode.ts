@@ -9,10 +9,10 @@ export const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
 export const DEMO_USER_ID = "demo";
 
 /** Demo account for evaluation purposes only: not a real credential. */
-export const DEMO_ACCOUNT = { email: "demo@pacul.app", password: "Demo1234!" } as const;
+export const DEMO_ACCOUNT = { email: "demo@boni.app", password: "Demo1234!" } as const;
 
 /** Demo government account for evaluation purposes only. */
-export const DEMO_GOV_ACCOUNT = { email: "gov-demo@pacul.app", password: "GovDemo1234!" } as const;
+export const DEMO_GOV_ACCOUNT = { email: "gov-demo@boni.app", password: "GovDemo1234!" } as const;
 
 export function demoDelay(ms = 350): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));

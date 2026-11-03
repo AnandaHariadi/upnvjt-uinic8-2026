@@ -55,7 +55,7 @@ export default function JudgeDemoGuide() {
           </li>
         ))}
       </ol>
-      <p className="mt-3 text-[11px] text-gray-500">Akun demo portal pemkot: <span className="font-mono">gov-demo@pacul.app</span> / <span className="font-mono">GovDemo1234!</span>. Khusus untuk pengujian dan evaluasi juri.</p>
+      <p className="mt-3 text-[11px] text-gray-500">Akun demo portal pemkot: <span className="font-mono">gov-demo@boni.app</span> / <span className="font-mono">GovDemo1234!</span>. Khusus untuk pengujian dan evaluasi juri.</p>
     </section>
   );
 }

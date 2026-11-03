@@ -5,7 +5,7 @@ About 5 minutes. Works on phone or desktop, with no API keys and no backend. Eve
 ## Start
 
 1. Open the site and select **Explore Demo** (or go to `/demo`).
-   This signs in as `demo@pacul.app` and **resets the demo to the same seeded state every time**: 500 EcoPoints, two seeded history records, one joined challenge at 2/3, ten demo waste reports.
+   This signs in as `demo@boni.app` and **resets the demo to the same seeded state every time**: 500 EcoPoints, two seeded history records, one joined challenge at 2/3, ten demo waste reports.
 2. The dashboard shows the **Judge demo guide**, which ticks each step automatically.
 
 ## 1 · AI-assisted verification
@@ -42,7 +42,7 @@ After a verified waste-sorting action: **+40 EcoPoints**, and the *Sort-at-Home 
 
 ## 6 · Government analytics
 
-`/gov/login` → **Continue as Demo Officer** (`gov-demo@pacul.app` / `GovDemo1234!`).
+`/gov/login` → **Continue as Demo Officer** (`gov-demo@boni.app` / `GovDemo1234!`).
 Explore the Overview, **Environmental Reports** (select **Manage** → set *Resolved* with a note → save), Green Action Analytics, Spatial Intelligence, Community Participation and EcoPoints & Economy. Use **District CSV** / **Export CSV** to download data.
 
 ## Reset
