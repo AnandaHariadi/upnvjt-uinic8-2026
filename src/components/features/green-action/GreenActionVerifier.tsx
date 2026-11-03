@@ -22,6 +22,7 @@ import { cn } from "@/utils/cn";
 import { GreenActionIcon } from "@/components/common/icons";
 import DataBadge from "@/components/common/DataBadge";
 import VerificationStatusBadge, { FLAG_COPY, STATUS_COPY } from "./VerificationStatusBadge";
+import CameraCaptureModal from "@/components/common/CameraCaptureModal";
 
 type Phase = "idle" | "preparing" | "checking" | "analysing" | "done";
 
@@ -46,6 +47,7 @@ export default function GreenActionVerifier() {
   const [phase, setPhase] = useState<Phase>("idle");
   const [outcome, setOutcome] = useState<RecordOutcome | null>(null);
   const [shareLocation, setShareLocation] = useState(false);
+  const [cameraModalOpen, setCameraModalOpen] = useState(false);
   const [service, setService] = useState<ServiceInfo | null>(null);
   const cameraRef = useRef<HTMLInputElement>(null);
   const galleryRef = useRef<HTMLInputElement>(null);
@@ -274,7 +276,7 @@ export default function GreenActionVerifier() {
                   <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
                     <button
                       type="button"
-                      onClick={() => cameraRef.current?.click()}
+                      onClick={() => setCameraModalOpen(true)}
                       disabled={busy}
                       className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2D5F3F] px-5 py-3 text-sm font-semibold text-white hover:bg-[#245033] disabled:opacity-60"
                     >
@@ -465,6 +467,12 @@ export default function GreenActionVerifier() {
           )
         )}
       </AnimatePresence>
+          <CameraCaptureModal
+        isOpen={cameraModalOpen}
+        onClose={() => setCameraModalOpen(false)}
+        onCapture={(file) => onFile(file)}
+        onFallbackToGallery={() => galleryRef.current?.click()}
+      />
     </section>
   );
 }
