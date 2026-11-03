@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Camera, X, RefreshCw, AlertCircle, ImagePlus } from "lucide-react";
 
 interface CameraCaptureModalProps {
@@ -25,12 +25,12 @@ export default function CameraCaptureModal({
   const [flash, setFlash] = useState(false);
 
   // Stop all camera tracks
-  const stopStream = () => {
+  const stopStream = useCallback(() => {
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());
       setStream(null);
     }
-  };
+  }, [stream]);
 
   // Start camera stream
   useEffect(() => {
@@ -80,9 +80,9 @@ export default function CameraCaptureModal({
         const msg =
           err instanceof Error
             ? err.name === "NotAllowedError" || err.name === "PermissionDeniedError"
-              ? "Izin akses kamera ditolak. Silakan izinkan akses kamera di browser Anda atau gunakan 'Pilih dari Galeri'."
+              ? "Izin akses kamera belum diizinkan. Silakan aktifkan izin kamera di browser Anda atau pilih foto dari galeri."
               : err.name === "NotFoundError" || err.name === "DevicesNotFoundError"
-              ? "Tidak ada kamera yang terdeteksi di perangkat ini."
+              ? "Tidak ada kamera yang terdeteksi di perangkat Anda."
               : err.message
             : "Gagal menghubungkan kamera.";
         setCameraError(msg);
@@ -95,7 +95,7 @@ export default function CameraCaptureModal({
       active = false;
       stopStream();
     };
-  }, [isOpen, facingMode]);
+  }, [isOpen, facingMode, stopStream]);
 
   // Capture snapshot from video
   const handleCapture = () => {
@@ -158,20 +158,20 @@ export default function CameraCaptureModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="camera-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-3 sm:p-4 backdrop-blur-sm"
     >
-      <div className="relative flex w-full max-w-xl flex-col overflow-hidden rounded-2xl bg-neutral-900 text-white shadow-2xl ring-1 ring-white/10">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-          <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
-              <Camera size={16} />
+      <div className="relative flex w-full max-w-lg flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-emerald-100 ring-1 ring-black/5 animate-in fade-in zoom-in-95 duration-200">
+        {/* Header Bersih Selaras Tema BONI */}
+        <div className="flex items-center justify-between border-b border-gray-100 bg-white px-5 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F0FAF4] text-[#2D5F3F] border border-emerald-200 shadow-xs">
+              <Camera size={19} />
             </div>
             <div>
-              <h3 id="camera-modal-title" className="text-sm font-bold text-white">
-                Ambil Bukti Aksi Langsung
+              <h3 id="camera-modal-title" className="text-sm font-bold text-[#1A1A1A]">
+                Ambil Bukti Aksi Hijau
               </h3>
-              <p className="text-[11px] text-gray-400">Arahkan kamera ke sampah / bukti aksi</p>
+              <p className="text-xs text-gray-500">Posisikan sampah atau bukti aksi di layar kamera</p>
             </div>
           </div>
           <button
@@ -181,98 +181,93 @@ export default function CameraCaptureModal({
               onClose();
             }}
             aria-label="Tutup kamera"
-            className="rounded-lg p-1.5 text-gray-400 hover:bg-white/10 hover:text-white transition-colors"
+            className="rounded-xl p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors"
           >
             <X size={20} />
           </button>
         </div>
 
-        {/* Viewfinder Area */}
-        <div className="relative flex aspect-4/3 w-full items-center justify-center overflow-hidden bg-black sm:aspect-16/10">
-          {cameraError ? (
-            <div className="flex flex-col items-center gap-3 p-6 text-center text-gray-300">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/20 text-red-400">
-                <AlertCircle size={24} />
+        {/* Viewfinder Area (Bersih Tanpa Garis Titik-Titik) */}
+        <div className="p-4 sm:p-5 bg-[#F9FAFB]">
+          <div className="relative flex aspect-4/3 w-full items-center justify-center overflow-hidden rounded-2xl bg-black shadow-inner sm:aspect-16/11">
+            {cameraError ? (
+              <div className="flex flex-col items-center gap-3 p-6 text-center text-gray-300">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/20 text-red-400">
+                  <AlertCircle size={26} />
+                </div>
+                <p className="max-w-sm text-xs leading-relaxed text-gray-300">{cameraError}</p>
+                {onFallbackToGallery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      stopStream();
+                      onClose();
+                      onFallbackToGallery();
+                    }}
+                    className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[#2D5F3F] px-4 py-2.5 text-xs font-semibold text-white hover:bg-[#245033] transition-colors shadow-sm"
+                  >
+                    <ImagePlus size={15} />
+                    <span>Pilih dari Galeri / File</span>
+                  </button>
+                )}
               </div>
-              <p className="max-w-sm text-xs leading-relaxed text-gray-300">{cameraError}</p>
-              {onFallbackToGallery && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    stopStream();
-                    onClose();
-                    onFallbackToGallery();
-                  }}
-                  className="mt-2 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-semibold text-white hover:bg-emerald-500 transition-colors"
-                >
-                  <ImagePlus size={15} />
-                  <span>Pilih dari Galeri / File</span>
-                </button>
-              )}
-            </div>
-          ) : (
-            <>
-              <video
-                ref={videoRef}
-                autoPlay
-                playsInline
-                muted
-                className="h-full w-full object-cover"
-              />
+            ) : (
+              <>
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                  muted
+                  className="h-full w-full object-cover"
+                />
 
-              {/* Viewfinder Target Frame */}
-              <div className="pointer-events-none absolute inset-6 rounded-2xl border-2 border-dashed border-emerald-400/40">
-                {/* Corners */}
-                <div className="absolute -left-1 -top-1 h-4 w-4 border-l-3 border-t-3 border-emerald-400" />
-                <div className="absolute -right-1 -top-1 h-4 w-4 border-r-3 border-t-3 border-emerald-400" />
-                <div className="absolute -bottom-1 -left-1 h-4 w-4 border-b-3 border-l-3 border-emerald-400" />
-                <div className="absolute -bottom-1 -right-1 h-4 w-4 border-b-3 border-r-3 border-emerald-400" />
-              </div>
-
-              {/* Shutter Flash Animation */}
-              {flash && <div className="absolute inset-0 bg-white transition-opacity duration-150" />}
-            </>
-          )}
+                {/* Shutter Flash Animation */}
+                {flash && <div className="absolute inset-0 bg-white transition-opacity duration-150" />}
+              </>
+            )}
+          </div>
         </div>
 
-        {/* Footer / Controls */}
-        <div className="flex items-center justify-between bg-neutral-950 px-6 py-4">
-          {/* Switch Camera Button (if multiple cameras available) */}
-          <div className="w-12">
+        {/* Footer / Kontrol Jepret Sesuai Desain BONI */}
+        <div className="flex items-center justify-between border-t border-gray-100 bg-white px-6 py-4">
+          {/* Tombol Putar Kamera */}
+          <div className="w-16">
             {hasMultipleCameras && !cameraError && (
               <button
                 type="button"
                 onClick={toggleFacingMode}
                 title="Putar Kamera"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white transition-colors"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 hover:border-emerald-300 hover:bg-[#F0FAF4] hover:text-[#2D5F3F] transition-all shadow-xs active:scale-95"
               >
-                <RefreshCw size={17} />
+                <RefreshCw size={18} />
               </button>
             )}
           </div>
 
-          {/* Shutter Button */}
+          {/* Tombol Shutter Utama (Emerald Hijau BONI) */}
           {!cameraError && (
             <button
               type="button"
               onClick={handleCapture}
               disabled={isCapturing || !stream}
               aria-label="Jepret Foto"
-              className="group flex h-16 w-16 items-center justify-center rounded-full border-4 border-white/30 bg-white/10 p-1 transition-transform hover:scale-105 active:scale-95 disabled:opacity-50"
+              className="group flex h-18 w-18 items-center justify-center rounded-full border-4 border-emerald-100 bg-white p-1 transition-transform hover:scale-105 active:scale-95 disabled:opacity-50 shadow-md ring-2 ring-emerald-500/20"
             >
-              <div className="h-full w-full rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 group-hover:bg-emerald-400 transition-colors" />
+              <div className="flex h-full w-full items-center justify-center rounded-full bg-[#2D5F3F] group-hover:bg-[#245033] shadow-inner text-white transition-colors">
+                <Camera size={26} className="text-white drop-shadow-xs" />
+              </div>
             </button>
           )}
 
-          {/* Close / Cancel */}
-          <div className="flex w-12 justify-end">
+          {/* Tombol Batal */}
+          <div className="flex w-16 justify-end">
             <button
               type="button"
               onClick={() => {
                 stopStream();
                 onClose();
               }}
-              className="text-xs font-semibold text-gray-400 hover:text-white transition-colors"
+              className="rounded-xl px-3 py-2 text-xs font-semibold text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
             >
               Batal
             </button>
