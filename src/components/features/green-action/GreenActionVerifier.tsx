@@ -185,18 +185,7 @@ export default function GreenActionVerifier() {
             Pilih kategori aksi hijau, unggah bukti foto, dan peroleh verifikasi otomatis dari sistem.
           </p>
         </div>
-        {service && (
-          <span
-            className={cn(
-              "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold",
-              service.mode === "demo" ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800"
-            )}
-            title={service.provider}
-          >
-            <ShieldCheck size={12} aria-hidden="true" />
-            {service.mode === "demo" ? "Mode Simulasi: Verifikasi teruji" : service.available ? (service.provider.includes("YOLO") ? "AI Aktif: BONI Custom YOLO11" : `AI Aktif: ${service.provider}`) : "AI Offline: Antrean tinjauan manual"}
-          </span>
-        )}
+
       </div>
 
       <AnimatePresence mode="wait">
