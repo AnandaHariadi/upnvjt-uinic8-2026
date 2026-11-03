@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Camera, X, RefreshCw, AlertCircle, ImagePlus, RotateCcw } from "lucide-react";
+import { Camera, X, RefreshCw, AlertCircle, ImagePlus, RotateCcw, Info } from "lucide-react";
 
 interface CameraCaptureModalProps {
   isOpen: boolean;
@@ -97,9 +97,6 @@ export default function CameraCaptureModal({
 
         if (mediaStream) {
           setStream(mediaStream);
-          if (videoRef.current) {
-            videoRef.current.srcObject = mediaStream;
-          }
         }
       } catch (err: unknown) {
         if (!active) return;
@@ -128,6 +125,20 @@ export default function CameraCaptureModal({
       stopStream();
     };
   }, [isOpen, facingMode, retryCount, stopStream]);
+
+  // Reliably attach stream to video DOM element whenever stream changes
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !stream) return;
+
+    video.srcObject = stream;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Silently catch autoplay race conditions
+      });
+    }
+  }, [stream]);
 
   // Capture snapshot from video
   const handleCapture = () => {
@@ -219,7 +230,7 @@ export default function CameraCaptureModal({
           </button>
         </div>
 
-        {/* Viewfinder Area (Bersih Tanpa Garis Titik-Titik) */}
+        {/* Viewfinder Area */}
         <div className="p-4 sm:p-5 bg-[#F9FAFB]">
           <div className="relative flex aspect-4/3 w-full items-center justify-center overflow-hidden rounded-2xl bg-black shadow-inner sm:aspect-16/11">
             {cameraError ? (
@@ -268,6 +279,10 @@ export default function CameraCaptureModal({
                   autoPlay
                   playsInline
                   muted
+                  onLoadedMetadata={(e) => {
+                    const v = e.currentTarget;
+                    v.play().catch(() => {});
+                  }}
                   className="h-full w-full object-cover"
                 />
 
@@ -275,6 +290,14 @@ export default function CameraCaptureModal({
                 {flash && <div className="absolute inset-0 bg-white transition-opacity duration-150" />}
               </>
             )}
+          </div>
+
+          {/* Info Hint untuk Pengguna Laptop */}
+          <div className="mt-3 flex items-start gap-2 rounded-xl bg-emerald-50/70 border border-emerald-100/80 px-3 py-2 text-[11px] text-[#0F3D2E]">
+            <Info size={14} className="mt-0.5 shrink-0 text-[#2D5F3F]" />
+            <span>
+              <strong>Tips Laptop:</strong> Jika layar hitam, pastikan <em>slider/penutup fisik kamera</em> di bingkai atas layar laptop tidak tertutup, atau tekan tombol fungsi kamera (biasanya Fn + F8/F10).
+            </span>
           </div>
         </div>
 
