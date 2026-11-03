@@ -51,6 +51,7 @@ function GovSidebarContent({
   officerUnit: string;
   officerRole: string;
   onItemClick?: () => void;
+  onClose?: () => void;
 }) {
   const cleanUnit =
     !officerUnit || officerUnit.includes("Demo") || officerUnit.includes("prototype")

@@ -15,7 +15,7 @@ import { DASHBOARD_NAV } from "@/config/navigation";
 import { useAuth } from "@/hooks/useAuth";
 
 /* ── Shared nav content ── */
-function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
+function SidebarContent({ onLinkClick, onClose }: { onLinkClick?: () => void; onClose?: () => void }) {
   const pathname = usePathname();
   const isLiveTracking = useStepTrackerStore((s) => s.isTracking);
   const hydrated = useHydrated();
