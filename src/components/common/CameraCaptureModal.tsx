@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Camera, X, RefreshCw, AlertCircle, ImagePlus } from "lucide-react";
+import { Camera, X, RefreshCw, AlertCircle, ImagePlus, RotateCcw } from "lucide-react";
 
 interface CameraCaptureModalProps {
   isOpen: boolean;
@@ -23,6 +23,7 @@ export default function CameraCaptureModal({
   const [cameraError, setCameraError] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
   const [flash, setFlash] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
 
   // Stop all camera tracks
   const stopStream = useCallback(() => {
@@ -32,7 +33,7 @@ export default function CameraCaptureModal({
     }
   }, [stream]);
 
-  // Start camera stream
+  // Start camera stream with multi-level resilient fallback
   useEffect(() => {
     if (!isOpen) {
       stopStream();
@@ -45,7 +46,7 @@ export default function CameraCaptureModal({
     const initCamera = async () => {
       try {
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-          throw new Error("Perangkat atau browser Anda tidak mendukung akses kamera langsung.");
+          throw new Error("Browser atau perangkat ini belum mendukung akses kamera langsung.");
         }
 
         // Check for multiple cameras
@@ -57,34 +58,65 @@ export default function CameraCaptureModal({
           // Ignore enumerate error
         }
 
-        const mediaStream = await navigator.mediaDevices.getUserMedia({
-          video: {
-            facingMode: { ideal: facingMode },
-            width: { ideal: 1920 },
-            height: { ideal: 1080 },
-          },
-          audio: false,
-        });
+        let mediaStream: MediaStream | null = null;
+
+        // Level 1: Coba dengan facingMode ideal (lingkungan/belakang untuk HP)
+        try {
+          mediaStream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              facingMode: { ideal: facingMode },
+              width: { ideal: 1280 },
+              height: { ideal: 720 },
+            },
+            audio: false,
+          });
+        } catch (e1) {
+          // Level 2: Coba tanpa batas resolusi
+          try {
+            mediaStream = await navigator.mediaDevices.getUserMedia({
+              video: { facingMode: { ideal: facingMode } },
+              audio: false,
+            });
+          } catch (e2) {
+            // Level 3 (Paling Aman untuk Laptop): Ambil kamera apapun yang tersedia
+            try {
+              mediaStream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: false,
+              });
+            } catch (e3) {
+              throw e3 || e2 || e1;
+            }
+          }
+        }
 
         if (!active) {
-          mediaStream.getTracks().forEach((t) => t.stop());
+          if (mediaStream) mediaStream.getTracks().forEach((t) => t.stop());
           return;
         }
 
-        setStream(mediaStream);
-        if (videoRef.current) {
-          videoRef.current.srcObject = mediaStream;
+        if (mediaStream) {
+          setStream(mediaStream);
+          if (videoRef.current) {
+            videoRef.current.srcObject = mediaStream;
+          }
         }
       } catch (err: unknown) {
         if (!active) return;
-        const msg =
-          err instanceof Error
-            ? err.name === "NotAllowedError" || err.name === "PermissionDeniedError"
-              ? "Izin akses kamera belum diizinkan. Silakan aktifkan izin kamera di browser Anda atau pilih foto dari galeri."
-              : err.name === "NotFoundError" || err.name === "DevicesNotFoundError"
-              ? "Tidak ada kamera yang terdeteksi di perangkat Anda."
-              : err.message
-            : "Gagal menghubungkan kamera.";
+        let msg = "Gagal menghubungkan kamera.";
+        if (err instanceof Error) {
+          if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
+            msg = "Izin kamera diblokir. Klik ikon gembok / kamera di sebelah kiri kolom URL browser lalu pilih 'Izinkan' (Allow).";
+          } else if (err.name === "NotReadableError" || err.name === "TrackStartError") {
+            msg = "Kamera sedang dipakai aplikasi lain (seperti Zoom, Teams, Meet, atau Windows Camera). Silakan tutup aplikasi tersebut lalu klik 'Coba Lagi'.";
+          } else if (err.name === "NotFoundError" || err.name === "DevicesNotFoundError") {
+            msg = "Tidak ada webcam / kamera yang terdeteksi di laptop Anda.";
+          } else if (err.name === "OverconstrainedError") {
+            msg = "Spesifikasi kamera tidak mendukung resolusi yang diminta.";
+          } else {
+            msg = err.message || msg;
+          }
+        }
         setCameraError(msg);
       }
     };
@@ -95,7 +127,7 @@ export default function CameraCaptureModal({
       active = false;
       stopStream();
     };
-  }, [isOpen, facingMode, stopStream]);
+  }, [isOpen, facingMode, retryCount, stopStream]);
 
   // Capture snapshot from video
   const handleCapture = () => {
@@ -191,25 +223,43 @@ export default function CameraCaptureModal({
         <div className="p-4 sm:p-5 bg-[#F9FAFB]">
           <div className="relative flex aspect-4/3 w-full items-center justify-center overflow-hidden rounded-2xl bg-black shadow-inner sm:aspect-16/11">
             {cameraError ? (
-              <div className="flex flex-col items-center gap-3 p-6 text-center text-gray-300">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500/20 text-red-400">
+              <div className="flex flex-col items-center gap-3.5 p-6 text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-amber-600 border border-amber-200">
                   <AlertCircle size={26} />
                 </div>
-                <p className="max-w-sm text-xs leading-relaxed text-gray-300">{cameraError}</p>
-                {onFallbackToGallery && (
+                <div className="space-y-1">
+                  <h4 className="text-sm font-bold text-gray-800">Kamera Tidak Dapat Dibuka</h4>
+                  <p className="max-w-sm text-xs leading-relaxed text-gray-600">{cameraError}</p>
+                </div>
+
+                <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
                   <button
                     type="button"
                     onClick={() => {
-                      stopStream();
-                      onClose();
-                      onFallbackToGallery();
+                      setCameraError(null);
+                      setRetryCount((c) => c + 1);
                     }}
-                    className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[#2D5F3F] px-4 py-2.5 text-xs font-semibold text-white hover:bg-[#245033] transition-colors shadow-sm"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3.5 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors shadow-xs"
                   >
-                    <ImagePlus size={15} />
-                    <span>Pilih dari Galeri / File</span>
+                    <RotateCcw size={14} />
+                    <span>Coba Lagi</span>
                   </button>
-                )}
+
+                  {onFallbackToGallery && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        stopStream();
+                        onClose();
+                        onFallbackToGallery();
+                      }}
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[#2D5F3F] px-4 py-2 text-xs font-semibold text-white hover:bg-[#245033] transition-colors shadow-sm"
+                    >
+                      <ImagePlus size={14} />
+                      <span>Pilih dari File / Galeri</span>
+                    </button>
+                  )}
+                </div>
               </div>
             ) : (
               <>
