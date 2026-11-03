@@ -17,7 +17,9 @@ export default function CameraCaptureModal({
   onFallbackToGallery,
 }: CameraCaptureModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [stream, setStream] = useState<MediaStream | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  const [streamActive, setStreamActive] = useState(false);
   const [facingMode, setFacingMode] = useState<"environment" | "user">("environment");
   const [hasMultipleCameras, setHasMultipleCameras] = useState(false);
   const [cameraError, setCameraError] = useState<string | null>(null);
@@ -25,22 +27,32 @@ export default function CameraCaptureModal({
   const [flash, setFlash] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
 
-  // Stop all camera tracks
+  // Stop all camera tracks reliably without triggering re-render loops
   const stopStream = useCallback(() => {
-    if (stream) {
-      stream.getTracks().forEach((track) => track.stop());
-      setStream(null);
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((track) => {
+        try {
+          track.stop();
+        } catch {
+          // Ignore track stop error
+        }
+      });
+      streamRef.current = null;
     }
-  }, [stream]);
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
+    setStreamActive(false);
+  }, []);
 
-  // Start camera stream with multi-level resilient fallback
+  // Start camera stream (hanya berjalan saat modal dibuka atau facingMode berganti)
   useEffect(() => {
     if (!isOpen) {
       stopStream();
       return;
     }
 
-    let active = true;
+    let isMounted = true;
     setCameraError(null);
 
     const initCamera = async () => {
@@ -49,18 +61,18 @@ export default function CameraCaptureModal({
           throw new Error("Browser atau perangkat ini belum mendukung akses kamera langsung.");
         }
 
-        // Check for multiple cameras
+        // Cek ketersediaan multi-kamera (kamera depan/belakang)
         try {
           const devices = await navigator.mediaDevices.enumerateDevices();
           const videoDevices = devices.filter((d) => d.kind === "videoinput");
-          if (active) setHasMultipleCameras(videoDevices.length > 1);
+          if (isMounted) setHasMultipleCameras(videoDevices.length > 1);
         } catch {
-          // Ignore enumerate error
+          // Abaikan error enumerasi
         }
 
         let mediaStream: MediaStream | null = null;
 
-        // Level 1: Coba dengan facingMode ideal (lingkungan/belakang untuk HP)
+        // Level 1: Coba dengan facingMode ideal (HP belakang / laptop depan)
         try {
           mediaStream = await navigator.mediaDevices.getUserMedia({
             video: {
@@ -90,16 +102,28 @@ export default function CameraCaptureModal({
           }
         }
 
-        if (!active) {
+        if (!isMounted) {
           if (mediaStream) mediaStream.getTracks().forEach((t) => t.stop());
           return;
         }
 
         if (mediaStream) {
-          setStream(mediaStream);
+          // Simpan ke streamRef
+          streamRef.current = mediaStream;
+          setStreamActive(true);
+
+          // Hubungkan langsung ke elemen video dan putar
+          const video = videoRef.current;
+          if (video) {
+            video.srcObject = mediaStream;
+            video.onloadedmetadata = () => {
+              video.play().catch(() => {});
+            };
+            video.play().catch(() => {});
+          }
         }
       } catch (err: unknown) {
-        if (!active) return;
+        if (!isMounted) return;
         let msg = "Gagal menghubungkan kamera.";
         if (err instanceof Error) {
           if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
@@ -121,24 +145,10 @@ export default function CameraCaptureModal({
     initCamera();
 
     return () => {
-      active = false;
+      isMounted = false;
       stopStream();
     };
   }, [isOpen, facingMode, retryCount, stopStream]);
-
-  // Reliably attach stream to video DOM element whenever stream changes
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !stream) return;
-
-    video.srcObject = stream;
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Silently catch autoplay race conditions
-      });
-    }
-  }, [stream]);
 
   // Capture snapshot from video
   const handleCapture = () => {
@@ -160,7 +170,7 @@ export default function CameraCaptureModal({
       const ctx = canvas.getContext("2d");
       if (!ctx) throw new Error("Gagal mengolah gambar");
 
-      // Draw current video frame to canvas
+      // Gambar frame video saat ini ke canvas
       ctx.drawImage(video, 0, 0, width, height);
 
       canvas.toBlob(
@@ -279,10 +289,6 @@ export default function CameraCaptureModal({
                   autoPlay
                   playsInline
                   muted
-                  onLoadedMetadata={(e) => {
-                    const v = e.currentTarget;
-                    v.play().catch(() => {});
-                  }}
                   className="h-full w-full object-cover"
                 />
 
@@ -296,7 +302,7 @@ export default function CameraCaptureModal({
           <div className="mt-3 flex items-start gap-2 rounded-xl bg-emerald-50/70 border border-emerald-100/80 px-3 py-2 text-[11px] text-[#0F3D2E]">
             <Info size={14} className="mt-0.5 shrink-0 text-[#2D5F3F]" />
             <span>
-              <strong>Tips Laptop:</strong> Jika layar hitam, pastikan <em>slider/penutup fisik kamera</em> di bingkai atas layar laptop tidak tertutup, atau tekan tombol fungsi kamera (biasanya Fn + F8/F10).
+              <strong>Tips Laptop:</strong> Jika layar hitam, pastikan penutup fisik (slider privacy shutter) kamera laptop terbuka, atau tekan tombol fungsi kamera (Fn + F8/F10).
             </span>
           </div>
         </div>
@@ -322,7 +328,7 @@ export default function CameraCaptureModal({
             <button
               type="button"
               onClick={handleCapture}
-              disabled={isCapturing || !stream}
+              disabled={isCapturing || !streamActive}
               aria-label="Jepret Foto"
               className="group flex h-18 w-18 items-center justify-center rounded-full border-4 border-emerald-100 bg-white p-1 transition-transform hover:scale-105 active:scale-95 disabled:opacity-50 shadow-md ring-2 ring-emerald-500/20"
             >
