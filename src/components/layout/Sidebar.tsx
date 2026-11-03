@@ -27,12 +27,24 @@ function SidebarContent({ onLinkClick, onClose }: { onLinkClick?: () => void; on
       <div>
         {/* Logo & Penanda Peran Warga */}
         <div className="flex h-16 items-center justify-between border-b border-[#E5E7EB] px-4">
-          <Link href="/" onClick={onLinkClick} aria-label="Beranda BONI" className="transition-opacity hover:opacity-90">
-            <Image src="/logo.png" alt="BONI" width={110} height={36} className="h-8 w-auto object-contain" priority />
-          </Link>
-          <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[10px] font-bold text-[#0F3D2E]">
-            Warga
-          </span>
+          <div className="flex items-center gap-2">
+            <Link href="/" onClick={onLinkClick} aria-label="Beranda BONI" className="transition-opacity hover:opacity-90">
+              <Image src="/logo.png" alt="BONI" width={110} height={36} className="h-8 w-auto object-contain" priority />
+            </Link>
+            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 text-[10px] font-bold text-[#0F3D2E]">
+              Warga
+            </span>
+          </div>
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Tutup navigasi"
+              className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
+            >
+              <X size={18} />
+            </button>
+          )}
         </div>
 
         <Link
@@ -151,16 +163,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
             aria-label="Navigasi Mobile"
             className="fixed inset-y-0 left-0 z-50 flex w-72 flex-col bg-white shadow-xl lg:hidden overflow-y-auto"
           >
-            <div className="absolute right-3 top-3 z-10">
-              <button
-                onClick={onClose}
-                aria-label="Tutup navigasi"
-                className="rounded-md p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
-              >
-                <X size={18} />
-              </button>
-            </div>
-            <SidebarContent onLinkClick={onClose} />
+            <SidebarContent onLinkClick={onClose} onClose={onClose} />
           </motion.div>
         </>
       )}
