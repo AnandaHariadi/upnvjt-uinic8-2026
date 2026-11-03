@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Camera, X, RefreshCw, AlertCircle, ImagePlus, RotateCcw, Info } from "lucide-react";
+import { Camera, X, RefreshCw, AlertCircle, ImagePlus, RotateCcw } from "lucide-react";
 
 interface CameraCaptureModalProps {
   isOpen: boolean;
@@ -298,13 +298,7 @@ export default function CameraCaptureModal({
             )}
           </div>
 
-          {/* Info Hint untuk Pengguna Laptop */}
-          <div className="mt-3 flex items-start gap-2 rounded-xl bg-emerald-50/70 border border-emerald-100/80 px-3 py-2 text-[11px] text-[#0F3D2E]">
-            <Info size={14} className="mt-0.5 shrink-0 text-[#2D5F3F]" />
-            <span>
-              <strong>Tips Laptop:</strong> Jika layar hitam, pastikan penutup fisik (slider privacy shutter) kamera laptop terbuka, atau tekan tombol fungsi kamera (Fn + F8/F10).
-            </span>
-          </div>
+
         </div>
 
         {/* Footer / Kontrol Jepret Sesuai Desain BONI */}
