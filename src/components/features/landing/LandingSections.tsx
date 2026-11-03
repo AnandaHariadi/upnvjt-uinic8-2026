@@ -244,12 +244,12 @@ export function Problem() {
                 </p>
               </div>
 
-              {/* Kotak Dampak Lapangan yang Terstruktur Tegas */}
-              <div className="mt-5 rounded-xl border border-red-200 bg-red-50 p-3.5 sm:p-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-red-700">
+              {/* Kotak Dampak Lapangan - Hijau Gelap Elegan Selaras Tema */}
+              <div className="mt-5 rounded-xl border border-emerald-950/20 bg-gradient-to-br from-[#0B2516] to-[#0F3320] p-3.5 sm:p-4 shadow-xs">
+                <div className="text-xs font-bold uppercase tracking-wider text-emerald-300">
                   Dampak Lapangan
                 </div>
-                <p className="mt-1 text-xs sm:text-[13px] leading-relaxed text-red-950 font-medium">
+                <p className="mt-1 text-xs sm:text-[13px] leading-relaxed text-emerald-100/90 font-medium">
                   {akibat}
                 </p>
               </div>
